@@ -12,14 +12,14 @@ const Container = styled.div`
     padding: ${baseUnits(0.5)} ${baseUnits(1)};
   }
 
-  background-color: ${props => props.color || colors.primary};
+  background-color: ${(props) => props.color || colors.primary};
 
-  border-top: ${props => borders(props.borderTop)};
-  border-bottom: ${props => borders(props.borderBottom)};
+  border-top: ${(props) => borders(props.borderTop)};
+  border-bottom: ${(props) => borders(props.borderBottom)};
 
   @media screen and (min-width: ${breakpoints.mobile}) {
-    border-right: ${props => borders(props.borderRight)};
-    border-left: ${props => borders(props.borderLeft)};
+    border-right: ${(props) => borders(props.borderRight)};
+    border-left: ${(props) => borders(props.borderLeft)};
   }
 `
 export default Container

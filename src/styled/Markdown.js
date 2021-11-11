@@ -31,23 +31,23 @@ const InlineParagraph = styled.p`
 `
 
 const largeMediumRenderer = {
-  heading: props => <LargeTitle {...props} />,
-  paragraph: props => <MediumParagraph {...props} />
+  heading: (props) => <LargeTitle {...props} />,
+  paragraph: (props) => <MediumParagraph {...props} />,
 }
 
 const linkRenderer = {
-  link: props => <Button {...props} />
+  link: (props) => <Button {...props} />,
 }
 
 const inlineRenderer = {
-  paragraph: props => <InlineParagraph {...props} />
+  paragraph: (props) => <InlineParagraph {...props} />,
 }
 
 Markdown.propTypes = {
   children: PropTypes.string.isRequired,
   largeMedium: PropTypes.bool,
   inlineBlocks: PropTypes.bool,
-  links: PropTypes.bool
+  links: PropTypes.bool,
 }
 
 export default Markdown

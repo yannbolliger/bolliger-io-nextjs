@@ -9,7 +9,7 @@ import AboutPersonSection from "./AboutPersonSection"
 const AboutSection = ({ textBlock, scrollRef }) => {
   const people = useApiData({
     collection: "personal_infos",
-    fields: "*, person.first_name, person.last_name, photo.filename"
+    fields: "*, person.first_name, person.last_name, photo.filename",
   })
 
   return (
@@ -28,7 +28,7 @@ const AboutSection = ({ textBlock, scrollRef }) => {
 
 AboutSection.propTypes = {
   textBlock: PropTypes.object,
-  scrollRef: PropTypes.object.isRequired
+  scrollRef: PropTypes.object.isRequired,
 }
 
 export default AboutSection

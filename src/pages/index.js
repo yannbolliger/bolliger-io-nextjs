@@ -11,7 +11,7 @@ import ContactSection from "../components/ContactSection"
 const sections = [
   { id: "about", component: AboutSection },
   { id: "projects", component: ProjectsSection },
-  { id: "contact", component: ContactSection }
+  { id: "contact", component: ContactSection },
 ]
 
 const Home = () => {
@@ -23,10 +23,10 @@ const Home = () => {
     {}
   )
 
-  const sectionsWithText = sections.map(section => ({
+  const sectionsWithText = sections.map((section) => ({
     textBlock: textBlocksBySlug[section.id],
     ref: useRef(null),
-    ...section
+    ...section,
   }))
 
   return (
@@ -37,7 +37,7 @@ const Home = () => {
 
       <LogoMenuHeader sections={sectionsWithText} />
 
-      {sectionsWithText.map(section => (
+      {sectionsWithText.map((section) => (
         <section.component
           key={section.id}
           textBlock={section.textBlock}

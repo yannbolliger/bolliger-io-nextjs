@@ -1,6 +1,6 @@
 import { useReducer } from "react"
 
-export default initialState => {
+export default (initialState) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "error":
@@ -12,13 +12,13 @@ export default initialState => {
 
   const [state, dispatch] = useReducer(reducer, {
     value: initialState,
-    error: ""
+    error: "",
   })
 
   return {
     ...state,
-    setValue: value => dispatch({ type: "value", value }),
+    setValue: (value) => dispatch({ type: "value", value }),
     hasError: state.error !== "",
-    setError: error => dispatch({ type: "error", error })
+    setError: (error) => dispatch({ type: "error", error }),
   }
 }

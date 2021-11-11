@@ -3,12 +3,12 @@ import axios from "axios"
 
 export const breakpoints = {
   mobile: "640px",
-  medium: "950px"
+  medium: "950px",
 }
 
 const baseFontSize = 18 // in pixel
 
-export const baseUnits = factor => {
+export const baseUnits = (factor) => {
   const remToUnitFactor = 2.7777777777
   const roundedToHalfPixel =
     Math.round(factor * remToUnitFactor * baseFontSize * 2) / 2.0
@@ -17,7 +17,7 @@ export const baseUnits = factor => {
 }
 
 export const borderWidth = "3px"
-export const borders = active =>
+export const borders = (active) =>
   active ? `solid ${colors.borderColor} ${borderWidth}` : `none`
 
 export const colors = {
@@ -26,7 +26,7 @@ export const colors = {
   primary: "#FF9500",
   primaryLight: "#FFE4BD",
   secondary: "#C9D4D6",
-  secondaryLight: "#E3EAEB"
+  secondaryLight: "#E3EAEB",
 }
 
 export const GlobalStyle = createGlobalStyle`

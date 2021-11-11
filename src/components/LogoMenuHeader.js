@@ -25,7 +25,7 @@ const LogoMenuHeader = ({ sections }) => {
 
       <Container>
         <SplitViewTopPadding>
-          <Logo src="static/BST-Logo.svg" />
+          <Logo src="/BST-Logo.svg" />
 
           {textBlocksLoaded && !isMenuVisible && (
             <Burger onClick={() => setMenuVisible(true)} />
@@ -52,7 +52,7 @@ const Logo = styled.img`
 `
 
 LogoMenuHeader.propTypes = {
-  sections: PropTypes.array.isRequired
+  sections: PropTypes.array.isRequired,
 }
 
 export default LogoMenuHeader

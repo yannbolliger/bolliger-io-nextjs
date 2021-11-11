@@ -15,7 +15,7 @@ const ProjectsSection = ({ textBlock, scrollRef }) => (
 
 ProjectsSection.propTypes = {
   textBlock: PropTypes.object,
-  scrollRef: PropTypes.object.isRequired
+  scrollRef: PropTypes.object.isRequired,
 }
 
 export default ProjectsSection

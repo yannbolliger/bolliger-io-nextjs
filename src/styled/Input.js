@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 
 import { borders, baseUnits, breakpoints } from "."
 
-const Input = props => {
+const Input = (props) => {
   const InputType = props.type === "textarea" ? MultiLineInput : BasicInput
 
   const labelText = props.label || props.name
@@ -24,7 +24,7 @@ const InputWrapper = styled.div`
   flex-basis: 100%;
 
   @media screen and (min-width: ${breakpoints.mobile}) {
-    flex-basis: ${props =>
+    flex-basis: ${(props) =>
       props.fullWidth ? "100%" : `calc(50% - ${baseUnits(0.25)})`};
   }
 `
@@ -64,7 +64,7 @@ Input.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   error: PropTypes.string,
-  label: PropTypes.string
+  label: PropTypes.string,
 }
 
 export default Input

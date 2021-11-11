@@ -37,12 +37,12 @@ const AboutPersonSection = ({ personalInfo, borderRight }) => (
 )
 
 const MarginWrapper = styled.div`
-  margin-top: ${props => (props.marginTop ? baseUnits(0.5) : "0")};
+  margin-top: ${(props) => (props.marginTop ? baseUnits(0.5) : "0")};
 `
 
 AboutPersonSection.propTypes = {
   personalInfo: PropTypes.object.isRequired,
-  borderRight: PropTypes.bool
+  borderRight: PropTypes.bool,
 }
 
 export default AboutPersonSection

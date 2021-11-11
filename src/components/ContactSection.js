@@ -43,7 +43,7 @@ const ContactSection = ({ textBlock, scrollRef }) => {
 
 ContactSection.propTypes = {
   textBlock: PropTypes.object,
-  scrollRef: PropTypes.object.isRequired
+  scrollRef: PropTypes.object.isRequired,
 }
 
 export default ContactSection

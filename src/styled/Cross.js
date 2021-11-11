@@ -26,14 +26,14 @@ const CrossLine = styled.span`
   width: 100%;
   position: absolute;
   top: 50%;
-  transform: ${props => (props.up ? "rotate(-45deg)" : "rotate(45deg)")};
+  transform: ${(props) => (props.up ? "rotate(-45deg)" : "rotate(45deg)")};
 
-  height: ${borderWidth}
+  height: ${borderWidth};
   background-color: ${colors.borderColor};
 `
 
 Cross.propTypes = {
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }
 
 export default Cross

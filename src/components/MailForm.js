@@ -14,7 +14,7 @@ const MailForm = () => {
   const email = useValueErrorState("")
   const message = useValueErrorState("")
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault()
     isFormSubmitted.setValue("Wird geschickt...")
     isFormSubmitted.setError("")
@@ -22,7 +22,7 @@ const MailForm = () => {
     sendMail({
       name: name.value,
       email: email.value,
-      message: message.value
+      message: message.value,
     })
       .then(() => isFormSubmitted.setValue("Die Nachricht wurde geschickt!"))
       .catch(() => isFormSubmitted.setError("Es ist ein Fehler aufgetreten."))
@@ -42,7 +42,7 @@ const MailForm = () => {
           type="text"
           value={name.value}
           error={name.error}
-          onChange={event => name.setValue(event.target.value)}
+          onChange={(event) => name.setValue(event.target.value)}
           required
         />
         <Input
@@ -50,7 +50,7 @@ const MailForm = () => {
           type="email"
           value={email.value}
           error={email.error}
-          onChange={event => email.setValue(event.target.value)}
+          onChange={(event) => email.setValue(event.target.value)}
           required
         />
         <Input
@@ -59,7 +59,7 @@ const MailForm = () => {
           type="textarea"
           value={message.value}
           error={message.error}
-          onChange={event => message.setValue(event.target.value)}
+          onChange={(event) => message.setValue(event.target.value)}
           rows="4"
         />
         <ButtonInput name="submit" type="submit" value="Nachricht schicken" />

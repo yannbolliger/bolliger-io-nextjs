@@ -3,7 +3,7 @@ import DirectusSDK from "@directus/sdk-js"
 
 const apiConfig = {
   url: "https://api.bolligerstudios.ch",
-  project: "_"
+  project: "_",
 }
 
 const client = new DirectusSDK(apiConfig)

@@ -27,7 +27,7 @@ const SideMarginWithBottomMargin = styled(SideMargin)`
 
 MailFormSection.propTypes = {
   onCloseClick: PropTypes.func.isRequired,
-  scrollRef: PropTypes.object.isRequired
+  scrollRef: PropTypes.object.isRequired,
 }
 
 export default MailFormSection

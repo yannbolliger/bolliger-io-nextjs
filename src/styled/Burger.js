@@ -27,12 +27,12 @@ const BurgerWrapper = styled.div`
 
 const BurgerLine = styled.span`
   width: 100%;
-  height: ${borderWidth}
+  height: ${borderWidth};
   background-color: ${colors.borderColor};
 `
 
 Burger.propTypes = {
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }
 
 export default Burger

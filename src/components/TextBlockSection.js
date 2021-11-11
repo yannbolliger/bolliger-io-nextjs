@@ -12,7 +12,7 @@ const TextBlockSection = ({
   color,
   borderTop,
   children,
-  scrollRef
+  scrollRef,
 }) =>
   !textBlock ? null : (
     <ContainerMorePadding borderTop={borderTop} color={color} ref={scrollRef}>
@@ -50,7 +50,7 @@ TextBlockSection.propTypes = {
   scrollRef: PropTypes.object,
   color: PropTypes.string,
   borderTop: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 export default TextBlockSection

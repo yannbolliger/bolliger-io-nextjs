@@ -36,7 +36,7 @@ const InnerInput = styled.input`
   ${sharedButtonStyle}
 `
 
-export const ButtonInput = props => (
+export const ButtonInput = (props) => (
   <ButtonLink as="div">
     <InnerInput {...props} />
   </ButtonLink>

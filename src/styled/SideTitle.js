@@ -30,7 +30,7 @@ export const SideMargin = styled.div`
 
 SideTitleSection.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 export default SideTitleSection

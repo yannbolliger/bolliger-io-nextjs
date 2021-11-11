@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
-const ScrollLink = props => {
+const ScrollLink = (props) => {
   const [isClicked, setClicked] = useState(false)
 
-  const onClick = event => {
+  const onClick = (event) => {
     event.preventDefault()
     if (props.onClick) props.onClick()
     setClicked(true)
@@ -32,7 +32,7 @@ const Link = styled.a`
 ScrollLink.propTypes = {
   targetRef: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }
 
 export default ScrollLink

@@ -12,7 +12,7 @@ const Menu = ({ visible, sections, onClose }) => (
   <AnimatedContainer visible={visible} borderBottom color={colors.primaryLight}>
     <SplitViewPadding>
       <LinkWrapper>
-        {sections.map(section => (
+        {sections.map((section) => (
           <ScrollLinkWithMargin
             targetRef={section.ref}
             key={section.id}
@@ -29,7 +29,7 @@ const Menu = ({ visible, sections, onClose }) => (
 )
 
 const AnimatedContainer = styled(Container)`
-  display: ${props => (props.visible ? "block" : "none")};
+  display: ${(props) => (props.visible ? "block" : "none")};
 `
 
 const SplitViewPadding = styled(SplitView)`
@@ -64,7 +64,7 @@ const ScrollLinkWithMargin = styled(ScrollLink)`
 Menu.propTypes = {
   sections: PropTypes.array.isRequired,
   visible: PropTypes.bool.isRequired,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
 }
 
 export default Menu

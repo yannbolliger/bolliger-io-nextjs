@@ -15,13 +15,13 @@ export default class extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props =>
+          enhanceApp: (App) => (props) =>
             sheet.collectStyles(
               <>
                 <GlobalStyle />
                 <App {...props} />
               </>
-            )
+            ),
         })
 
       const initialProps = await Document.getInitialProps(ctx)
@@ -35,7 +35,7 @@ export default class extends Document {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        )
+        ),
       }
     } finally {
       sheet.seal()
