@@ -1,2 +1,4 @@
-# bolliger-studios-react-website
-Website for bolligerstudios.ch built with React.
+# bolliger-io-nextjs
+
+Website for [https://bolliger.io](bolliger.io) built with next.js, React &
+Typescript.
