@@ -1,10 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import { colors, borderWidth, baseUnits } from "."
 
-const Burger = ({ onClick }) => (
+const Burger: React.FC<{ onClick: () => void }> = ({ onClick }) => (
   <BurgerWrapper onClick={onClick}>
     <BurgerLine />
     <BurgerLine />
@@ -30,9 +28,5 @@ const BurgerLine = styled.span`
   height: ${borderWidth};
   background-color: ${colors.borderColor};
 `
-
-Burger.propTypes = {
-  onClick: PropTypes.func,
-}
 
 export default Burger

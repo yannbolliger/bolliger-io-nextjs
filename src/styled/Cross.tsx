@@ -1,10 +1,9 @@
 import React from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import { colors, borderWidth, baseUnits } from "."
 
-const Cross = ({ onClick }) => (
+const Cross: React.FC<{ onClick: () => void }> = ({ onClick }) => (
   <CrossWrapper onClick={onClick}>
     <CrossLine />
     <CrossLine up />
@@ -22,7 +21,7 @@ const CrossWrapper = styled.div`
   cursor: pointer;
 `
 
-const CrossLine = styled.span`
+const CrossLine = styled.span<{ up?: boolean }>`
   width: 100%;
   position: absolute;
   top: 50%;
@@ -31,9 +30,5 @@ const CrossLine = styled.span`
   height: ${borderWidth};
   background-color: ${colors.borderColor};
 `
-
-Cross.propTypes = {
-  onClick: PropTypes.func,
-}
 
 export default Cross

@@ -1,25 +1,35 @@
 import React from "react"
-import PropTypes from "prop-types"
 import styled, { css } from "styled-components"
 
 import { borders, baseUnits, breakpoints } from "."
 
-const Input = (props) => {
-  const InputType = props.type === "textarea" ? MultiLineInput : BasicInput
+interface Props {
+  type: string
+  name: string
+  onChange?: () => void
+  value?: string
+  error?: string
+  label?: string
+}
 
+const Input: React.FC<Props> = (props) => {
   const labelText = props.label || props.name
   const capitalisedLabel = labelText[0].toUpperCase() + labelText.substr(1)
 
   return (
     <InputWrapper fullWidth={props.type === "textarea"}>
-      <InputType {...props} placeholder={capitalisedLabel} />
+      {props.type === "textarea" ? (
+        <MultiLineInput {...props} placeholder={capitalisedLabel} />
+      ) : (
+        <BasicInput {...props} placeholder={capitalisedLabel} />
+      )}
 
       {props.error && <ErrorLabel>{props.error}</ErrorLabel>}
     </InputWrapper>
   )
 }
 
-const InputWrapper = styled.div`
+const InputWrapper = styled.div<{ fullWidth: boolean }>`
   margin-bottom: ${baseUnits(0.5)};
   flex-basis: 100%;
 
@@ -57,14 +67,5 @@ const MultiLineInput = styled.textarea`
 `
 
 const ErrorLabel = styled.div``
-
-Input.propTypes = {
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
-  error: PropTypes.string,
-  label: PropTypes.string,
-}
 
 export default Input

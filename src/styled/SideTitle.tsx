@@ -1,12 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints } from "."
 import { SmallTitle } from "./typography"
 import SplitView from "./SplitView"
 
-const SideTitleSection = ({ title, children }) => (
+interface Props {
+  title: string
+  children: React.ReactNode
+}
+
+const SideTitleSection: React.FC<Props> = ({ title, children }) => (
   <SplitView>
     <SideMargin>
       <SmallTitle>{title}</SmallTitle>
@@ -27,10 +30,5 @@ export const SideMargin = styled.div`
     width: ${baseUnits(4)};
   }
 `
-
-SideTitleSection.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node,
-}
 
 export default SideTitleSection

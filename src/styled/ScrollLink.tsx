@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 
-const ScrollLink = (props) => {
+interface Props {
+  targetRef: React.RefObject<HTMLElement>
+  children: React.ReactNode
+  onClick?: () => void
+}
+
+const ScrollLink: React.FC<Props> = (props) => {
   const [isClicked, setClicked] = useState(false)
 
-  const onClick = (event) => {
+  const onClick = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault()
     if (props.onClick) props.onClick()
     setClicked(true)
@@ -28,11 +33,5 @@ const ScrollLink = (props) => {
 const Link = styled.a`
   cursor: pointer;
 `
-
-ScrollLink.propTypes = {
-  targetRef: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func,
-}
 
 export default ScrollLink

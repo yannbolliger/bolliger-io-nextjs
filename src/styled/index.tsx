@@ -14,7 +14,7 @@ export const baseUnits = (factor: number) => {
 }
 
 export const borderWidth = "3px"
-export const borders = (active: boolean) =>
+export const borders = (active?: boolean) =>
   active ? `solid ${colors.borderColor} ${borderWidth}` : `none`
 
 export const colors = {

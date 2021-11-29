@@ -1,7 +1,14 @@
 import styled from "styled-components"
 import { colors, borders, baseUnits, breakpoints } from "."
 
-const Container = styled.div`
+interface Props {
+  borderTop?: boolean
+  borderRight?: boolean
+  borderBottom?: boolean
+  borderLeft?: boolean
+}
+
+const Container = styled.div<Props>`
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
