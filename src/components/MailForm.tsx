@@ -4,7 +4,7 @@ import { sendMail } from "../api"
 import useValueErrorState from "../hooks/useValueErrorState"
 import { SmallTitle, MediumTitle } from "../styled/typography"
 import Form from "../styled/Form"
-import Input from "../styled/Input"
+import Input, { TextArea } from "../styled/Input"
 import { ButtonInput } from "../styled/Button"
 
 const MailForm = () => {
@@ -14,7 +14,7 @@ const MailForm = () => {
   const email = useValueErrorState("")
   const message = useValueErrorState("")
 
-  const onSubmit = (event) => {
+  const onSubmit = (event: React.FormEvent) => {
     event.preventDefault()
     isFormSubmitted.setValue("Wird geschickt...")
     isFormSubmitted.setError("")
@@ -40,27 +40,35 @@ const MailForm = () => {
         <Input
           name="name"
           type="text"
+          label="Name"
           value={name.value}
           error={name.error}
-          onChange={(event) => name.setValue(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            name.setValue(event.target.value)
+          }
           required
         />
         <Input
           name="email"
           type="email"
+          label="E-Mail"
           value={email.value}
           error={email.error}
-          onChange={(event) => email.setValue(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            email.setValue(event.target.value)
+          }
           required
         />
-        <Input
+        <TextArea
           name="message"
           label="Nachricht..."
           type="textarea"
           value={message.value}
           error={message.error}
-          onChange={(event) => message.setValue(event.target.value)}
-          rows="4"
+          onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
+            message.setValue(event.target.value)
+          }
+          rows={4}
         />
         <ButtonInput name="submit" type="submit" value="Nachricht schicken" />
       </Form>

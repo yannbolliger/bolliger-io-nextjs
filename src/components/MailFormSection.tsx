@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import { colors, baseUnits } from "../styled"
@@ -9,7 +8,12 @@ import SplitView from "../styled/SplitView"
 import { SideMargin } from "../styled/SideTitle"
 import MailForm from "./MailForm"
 
-const MailFormSection = ({ onCloseClick, scrollRef }) => (
+interface Props {
+  onCloseClick: () => void
+  scrollRef: React.RefObject<HTMLDivElement>
+}
+
+const MailFormSection: React.FC<Props> = ({ onCloseClick, scrollRef }) => (
   <Container ref={scrollRef} color={colors.primaryLight} borderTop>
     <SplitView>
       <SideMarginWithBottomMargin>
@@ -24,10 +28,5 @@ const MailFormSection = ({ onCloseClick, scrollRef }) => (
 const SideMarginWithBottomMargin = styled(SideMargin)`
   margin-bottom: ${baseUnits(0.5)};
 `
-
-MailFormSection.propTypes = {
-  onCloseClick: PropTypes.func.isRequired,
-  scrollRef: PropTypes.object.isRequired,
-}
 
 export default MailFormSection

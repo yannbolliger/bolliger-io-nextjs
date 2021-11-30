@@ -4,32 +4,31 @@ import styled, { css } from "styled-components"
 import { borders, baseUnits, breakpoints } from "."
 
 interface Props {
-  type: string
-  name: string
-  onChange?: () => void
-  value?: string
+  label: string
   error?: string
-  label?: string
 }
 
-const Input: React.FC<Props> = (props) => {
-  const labelText = props.label || props.name
-  const capitalisedLabel = labelText[0].toUpperCase() + labelText.substr(1)
+const Input: React.FC<Props & React.InputHTMLAttributes<HTMLInputElement>> = (
+  props
+) => (
+  <InputWrapper>
+    <BasicInput {...props} placeholder={props.label} />
+    {props.error && <ErrorLabel>{props.error}</ErrorLabel>}
+  </InputWrapper>
+)
 
-  return (
-    <InputWrapper fullWidth={props.type === "textarea"}>
-      {props.type === "textarea" ? (
-        <MultiLineInput {...props} placeholder={capitalisedLabel} />
-      ) : (
-        <BasicInput {...props} placeholder={capitalisedLabel} />
-      )}
+export default Input
 
-      {props.error && <ErrorLabel>{props.error}</ErrorLabel>}
-    </InputWrapper>
-  )
-}
+export const TextArea: React.FC<
+  Props & React.TextareaHTMLAttributes<HTMLTextAreaElement>
+> = (props) => (
+  <InputWrapper fullWidth>
+    <MultiLineInput {...props} placeholder={props.label} />
+    {props.error && <ErrorLabel>{props.error}</ErrorLabel>}
+  </InputWrapper>
+)
 
-const InputWrapper = styled.div<{ fullWidth: boolean }>`
+const InputWrapper = styled.div<{ fullWidth?: boolean }>`
   margin-bottom: ${baseUnits(0.5)};
   flex-basis: 100%;
 
@@ -67,5 +66,3 @@ const MultiLineInput = styled.textarea`
 `
 
 const ErrorLabel = styled.div``
-
-export default Input

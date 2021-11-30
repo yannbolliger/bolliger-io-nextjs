@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react"
-import PropTypes from "prop-types"
 
 import { colors } from "../styled"
 import { LargeTitle, MediumTitle } from "../styled/typography"
@@ -8,7 +7,11 @@ import ScrollLink from "../styled/ScrollLink"
 import TextBlockSection from "./TextBlockSection"
 import MailFormSection from "./MailFormSection"
 
-const ContactSection = ({ scrollRef }) => {
+interface Props {
+  scrollRef: React.RefObject<HTMLDivElement>
+}
+
+const ContactSection: React.FC<Props> = ({ scrollRef }) => {
   const [isFormVisible, setFormVisible] = useState(false)
   const formRef = useRef(null)
 
@@ -40,11 +43,6 @@ const ContactSection = ({ scrollRef }) => {
       )}
     </>
   )
-}
-
-ContactSection.propTypes = {
-  textBlock: PropTypes.object,
-  scrollRef: PropTypes.object.isRequired,
 }
 
 export default ContactSection
