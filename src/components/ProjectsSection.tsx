@@ -3,6 +3,7 @@ import React from "react"
 import { colors } from "../styled"
 import TextBlockSection from "./TextBlockSection"
 
+// @ts-ignore
 import Projects, { title } from "../content/Projects.mdx"
 
 interface Props {

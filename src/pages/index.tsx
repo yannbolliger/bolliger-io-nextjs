@@ -7,7 +7,9 @@ import AboutSection from "../components/AboutSection"
 import ProjectsSection from "../components/ProjectsSection"
 import ContactSection from "../components/ContactSection"
 
+// @ts-ignore
 import { title as aboutTitle } from "../content/About.mdx"
+// @ts-ignore
 import { title as projectsTitle } from "../content/Projects.mdx"
 
 const sections = [
