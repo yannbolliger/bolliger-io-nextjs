@@ -6,7 +6,6 @@ import SplitView from "./SplitView"
 
 interface Props {
   title: string
-  children: React.ReactNode
 }
 
 const SideTitleSection: React.FC<Props> = ({ title, children }) => (

@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react"
 import Head from "next/head"
 import smoothscroll from "smoothscroll-polyfill"
 
-import { useApiData } from "../api"
 import LogoMenuHeader from "../components/LogoMenuHeader"
 import AboutSection from "../components/AboutSection"
 import ProjectsSection from "../components/ProjectsSection"
@@ -17,14 +16,7 @@ const sections = [
 const Home = () => {
   useEffect(() => smoothscroll.polyfill())
 
-  const textBlocks = useApiData({ collection: "text_blocks" })
-  const textBlocksBySlug = Object.values(textBlocks).reduce(
-    (map, block) => ({ [block.slug]: block, ...map }),
-    {}
-  )
-
-  const sectionsWithText = sections.map((section) => ({
-    textBlock: textBlocksBySlug[section.id],
+  const sectionsWithRefs = sections.map((section) => ({
     ref: useRef(null),
     ...section,
   }))
@@ -35,14 +27,10 @@ const Home = () => {
         <title>Bolliger Studios</title>
       </Head>
 
-      <LogoMenuHeader sections={sectionsWithText} />
+      <LogoMenuHeader sections={sectionsWithRefs} />
 
-      {sectionsWithText.map((section) => (
-        <section.component
-          key={section.id}
-          textBlock={section.textBlock}
-          scrollRef={section.ref}
-        />
+      {sectionsWithRefs.map((section) => (
+        <section.component key={section.id} scrollRef={section.ref} />
       ))}
     </>
   )
