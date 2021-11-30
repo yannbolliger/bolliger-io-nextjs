@@ -1,26 +1,33 @@
 import React from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
+import { MDXProvider } from "@mdx-js/react"
 
 import { baseUnits, breakpoints } from "../styled"
 import Container from "../styled/Container"
 import SideTitleSection from "../styled/SideTitle"
-import Markdown from "../styled/Markdown"
+import { LargeTitle, MediumParagraph } from "../styled/typography"
 
-const TextBlockSection = ({
-  textBlock,
+interface Props {
+  title?: string
+  color?: string
+  borderTop?: boolean
+  scrollRef?: React.RefObject<HTMLDivElement>
+}
+
+const TextBlockSection: React.FC<Props> = ({
+  title,
   color,
   borderTop,
   children,
   scrollRef,
 }) =>
-  !textBlock ? null : (
+  !title ? null : (
     <ContainerMorePadding borderTop={borderTop} color={color} ref={scrollRef}>
-      <SideTitleSection title={textBlock.title}>
+      <SideTitleSection title={title}>
         <PaddingRightWrapper>
-          <Markdown largeMedium>{textBlock.text}</Markdown>
-
-          {children}
+          <MDXProvider components={{ p: MediumParagraph, h2: LargeTitle }}>
+            {children}
+          </MDXProvider>
         </PaddingRightWrapper>
       </SideTitleSection>
     </ContainerMorePadding>
@@ -44,13 +51,5 @@ const PaddingRightWrapper = styled.div`
     padding-right: ${baseUnits(4)};
   }
 `
-
-TextBlockSection.propTypes = {
-  textBlock: PropTypes.object,
-  scrollRef: PropTypes.object,
-  color: PropTypes.string,
-  borderTop: PropTypes.bool,
-  children: PropTypes.node,
-}
 
 export default TextBlockSection

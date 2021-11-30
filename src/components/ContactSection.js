@@ -2,24 +2,25 @@ import React, { useState, useRef } from "react"
 import PropTypes from "prop-types"
 
 import { colors } from "../styled"
-import { MediumTitle } from "../styled/typography"
+import { LargeTitle, MediumTitle } from "../styled/typography"
 import Button from "../styled/Button"
 import ScrollLink from "../styled/ScrollLink"
 import TextBlockSection from "./TextBlockSection"
 import MailFormSection from "./MailFormSection"
 
-const ContactSection = ({ textBlock, scrollRef }) => {
+const ContactSection = ({ scrollRef }) => {
   const [isFormVisible, setFormVisible] = useState(false)
   const formRef = useRef(null)
 
   return (
     <>
       <TextBlockSection
-        textBlock={textBlock}
+        title="Kontakt"
         color={colors.primary}
         borderTop
         scrollRef={scrollRef}
       >
+        <LargeTitle>Say Hi!</LargeTitle>
         <MediumTitle>
           <ScrollLink
             as="div"

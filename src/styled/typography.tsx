@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 import { baseUnits } from "."
 
@@ -10,10 +10,14 @@ export const SmallTitle = styled.h4`
   margin-bottom: ${baseUnits(0.25)};
 `
 
-export const MediumTitle = styled.h3`
+const medium = css`
   font-size: 1.66666rem;
   font-weight: 500;
   line-height: 1.2;
+`
+
+export const MediumTitle = styled.h3`
+  ${medium}
   margin-bottom: ${baseUnits(0.5)};
 `
 
@@ -21,6 +25,9 @@ export const LargeTitle = styled.h2`
   font-size: 3rem;
   line-height: 1;
   font-weight: 500;
-
   margin-bottom: ${baseUnits(0.5)};
+`
+
+export const MediumParagraph = styled.p`
+  ${medium}
 `
