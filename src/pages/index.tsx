@@ -7,17 +7,20 @@ import AboutSection from "../components/AboutSection"
 import ProjectsSection from "../components/ProjectsSection"
 import ContactSection from "../components/ContactSection"
 
+import { title as aboutTitle } from "../content/About.mdx"
+import { title as projectsTitle } from "../content/Projects.mdx"
+
 const sections = [
-  { id: "about", component: AboutSection },
-  { id: "projects", component: ProjectsSection },
-  { id: "contact", component: ContactSection },
+  { id: "about", title: aboutTitle, component: AboutSection },
+  { id: "projects", title: projectsTitle, component: ProjectsSection },
+  { id: "contact", title: "Kontakt", component: ContactSection },
 ]
 
 const Home = () => {
   useEffect(() => smoothscroll.polyfill())
 
   const sectionsWithRefs = sections.map((section) => ({
-    ref: useRef(null),
+    ref: useRef<React.RefObject<HTMLElement>>(null),
     ...section,
   }))
 

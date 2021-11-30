@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import { colors, baseUnits, breakpoints } from "../styled"
@@ -8,7 +7,19 @@ import SplitView from "../styled/SplitView"
 import Cross from "../styled/Cross"
 import ScrollLink from "../styled/ScrollLink"
 
-const Menu = ({ visible, sections, onClose }) => (
+export interface Section {
+  id: string
+  ref: React.RefObject<HTMLElement>
+  title: string
+}
+
+interface Props {
+  sections: [Section]
+  visible?: boolean
+  onClose?: () => void
+}
+
+const Menu: React.FC<Props> = ({ visible, sections, onClose }) => (
   <AnimatedContainer visible={visible} borderBottom color={colors.primaryLight}>
     <SplitViewPadding>
       <LinkWrapper>
@@ -18,7 +29,7 @@ const Menu = ({ visible, sections, onClose }) => (
             key={section.id}
             onClick={onClose}
           >
-            {section.textBlock.title}
+            {section.title}
           </ScrollLinkWithMargin>
         ))}
       </LinkWrapper>
@@ -28,7 +39,7 @@ const Menu = ({ visible, sections, onClose }) => (
   </AnimatedContainer>
 )
 
-const AnimatedContainer = styled(Container)`
+const AnimatedContainer = styled(Container)<{ visible?: boolean }>`
   display: ${(props) => (props.visible ? "block" : "none")};
 `
 
@@ -60,11 +71,5 @@ const ScrollLinkWithMargin = styled(ScrollLink)`
     margin-right: ${baseUnits(1)};
   }
 `
-
-Menu.propTypes = {
-  sections: PropTypes.array.isRequired,
-  visible: PropTypes.bool.isRequired,
-  onClose: PropTypes.func,
-}
 
 export default Menu

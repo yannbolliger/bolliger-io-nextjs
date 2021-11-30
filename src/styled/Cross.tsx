@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import { colors, borderWidth, baseUnits } from "."
 
-const Cross: React.FC<{ onClick: () => void }> = ({ onClick }) => (
+const Cross: React.FC<{ onClick?: () => void }> = ({ onClick }) => (
   <CrossWrapper onClick={onClick}>
     <CrossLine />
     <CrossLine up />

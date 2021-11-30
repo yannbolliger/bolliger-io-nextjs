@@ -1,35 +1,31 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints } from "../styled"
 import Container from "../styled/Container"
 import Burger from "../styled/Burger"
 import SplitView from "../styled/SplitView"
-import Menu from "./Menu"
+import Menu, { Section } from "./Menu"
 
-const LogoMenuHeader = ({ sections }) => {
+interface Props {
+  sections: [Section]
+}
+
+const LogoMenuHeader: React.FC<Props> = ({ sections }) => {
   const [isMenuVisible, setMenuVisible] = useState(false)
-
-  const textBlocksLoaded = sections[0].textBlock !== undefined
 
   return (
     <>
-      {textBlocksLoaded && (
-        <Menu
-          visible={isMenuVisible}
-          sections={sections}
-          onClose={() => setMenuVisible(false)}
-        />
-      )}
-
+      <Menu
+        visible={isMenuVisible}
+        sections={sections}
+        onClose={() => setMenuVisible(false)}
+      />
       <Container>
         <SplitViewTopPadding>
           <Logo src="/BST-Logo.svg" />
 
-          {textBlocksLoaded && !isMenuVisible && (
-            <Burger onClick={() => setMenuVisible(true)} />
-          )}
+          {!isMenuVisible && <Burger onClick={() => setMenuVisible(true)} />}
         </SplitViewTopPadding>
       </Container>
     </>
@@ -50,9 +46,5 @@ const Logo = styled.img`
   width: ${baseUnits(6.28)};
   max-width: calc(100% - ${baseUnits(1)});
 `
-
-LogoMenuHeader.propTypes = {
-  sections: PropTypes.array.isRequired,
-}
 
 export default LogoMenuHeader
