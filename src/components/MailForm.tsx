@@ -1,6 +1,6 @@
 import React from "react"
 
-import { sendMail } from "../api"
+import sendMail from "../api/sendMail"
 import useValueErrorState from "../hooks/useValueErrorState"
 import { SmallTitle, MediumTitle } from "../styled/typography"
 import Form from "../styled/Form"
@@ -19,11 +19,7 @@ const MailForm = () => {
     isFormSubmitted.setValue("Wird geschickt...")
     isFormSubmitted.setError("")
 
-    sendMail({
-      name: name.value,
-      email: email.value,
-      message: message.value,
-    })
+    sendMail(name.value, email.value, message.value)
       .then(() => isFormSubmitted.setValue("Die Nachricht wurde geschickt!"))
       .catch(() => isFormSubmitted.setError("Es ist ein Fehler aufgetreten."))
   }
@@ -62,6 +58,7 @@ const MailForm = () => {
         <TextArea
           name="message"
           label="Nachricht..."
+          required
           value={message.value}
           error={message.error}
           onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) =>

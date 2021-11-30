@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import Head from "next/head"
 import smoothscroll from "smoothscroll-polyfill"
+import { init } from "emailjs-com"
 
 import LogoMenuHeader from "../components/LogoMenuHeader"
 import AboutSection from "../components/AboutSection"
@@ -13,7 +14,11 @@ import { title as aboutTitle } from "../content/About.mdx"
 import { title as projectsTitle } from "../content/Projects.mdx"
 
 const Home = () => {
-  useEffect(() => smoothscroll.polyfill())
+  // Do all the inits
+  useEffect(() => {
+    smoothscroll.polyfill()
+    init("user_fByLVomFE88sDn2dTvYFK")
+  })
 
   const sections = [
     {
