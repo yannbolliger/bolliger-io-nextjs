@@ -8,7 +8,7 @@ import Input, { TextArea } from "../styled/Input"
 import { ButtonInput } from "../styled/Button"
 
 const MailForm = () => {
-  const isFormSubmitted = useValueErrorState(false)
+  const isFormSubmitted = useValueErrorState("")
 
   const name = useValueErrorState("")
   const email = useValueErrorState("")
