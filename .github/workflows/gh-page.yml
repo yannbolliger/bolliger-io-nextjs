@@ -2,7 +2,7 @@ name: Build & Deploy GH Page
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
