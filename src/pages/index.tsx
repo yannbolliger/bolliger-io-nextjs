@@ -20,7 +20,7 @@ const Home = () => {
   useEffect(() => smoothscroll.polyfill())
 
   const sectionsWithRefs = sections.map((section) => ({
-    ref: useRef<React.RefObject<HTMLElement>>(null),
+    ref: useRef<HTMLDivElement>(null),
     ...section,
   }))
 

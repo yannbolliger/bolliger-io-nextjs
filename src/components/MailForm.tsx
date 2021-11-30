@@ -62,7 +62,6 @@ const MailForm = () => {
         <TextArea
           name="message"
           label="Nachricht..."
-          type="textarea"
           value={message.value}
           error={message.error}
           onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) =>

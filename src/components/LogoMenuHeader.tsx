@@ -8,7 +8,7 @@ import SplitView from "../styled/SplitView"
 import Menu, { Section } from "./Menu"
 
 interface Props {
-  sections: [Section]
+  sections: Section[]
 }
 
 const LogoMenuHeader: React.FC<Props> = ({ sections }) => {

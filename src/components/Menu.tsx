@@ -14,7 +14,7 @@ export interface Section {
 }
 
 interface Props {
-  sections: [Section]
+  sections: Section[]
   visible?: boolean
   onClose?: () => void
 }

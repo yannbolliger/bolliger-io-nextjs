@@ -4,6 +4,7 @@ import styled from "styled-components"
 interface Props {
   targetRef: React.RefObject<HTMLElement>
   onClick?: () => void
+  as?: keyof JSX.IntrinsicElements
 }
 
 const ScrollLink: React.FC<Props> = (props) => {

@@ -10,7 +10,11 @@ import { ServerStyleSheet } from "styled-components"
 
 import fetchFontCss from "../api/fetchFontCss"
 
-export default class extends Document {
+interface Props {
+  fontCssString: string
+}
+
+export default class extends Document<Props> {
   /**
    * from styled-components example of next.js App
    */
