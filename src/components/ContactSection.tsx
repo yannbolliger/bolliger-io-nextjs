@@ -8,17 +8,18 @@ import TextBlockSection from "./TextBlockSection"
 import MailFormSection from "./MailFormSection"
 
 interface Props {
+  title: string
   scrollRef: React.RefObject<HTMLDivElement>
 }
 
-const ContactSection: React.FC<Props> = ({ scrollRef }) => {
+const ContactSection: React.FC<Props> = ({ title, scrollRef }) => {
   const [isFormVisible, setFormVisible] = useState(false)
   const formRef = useRef(null)
 
   return (
     <>
       <TextBlockSection
-        title="Kontakt"
+        title={title}
         color={colors.primary}
         borderTop
         scrollRef={scrollRef}

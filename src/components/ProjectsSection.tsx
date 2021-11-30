@@ -3,14 +3,14 @@ import React from "react"
 import { colors } from "../styled"
 import TextBlockSection from "./TextBlockSection"
 
-// @ts-ignore
-import Projects, { title } from "../content/Projects.mdx"
+import Projects from "../content/Projects.mdx"
 
 interface Props {
+  title: string
   scrollRef: React.RefObject<HTMLDivElement>
 }
 
-const ProjectsSection: React.FC<Props> = ({ scrollRef }) => (
+const ProjectsSection: React.FC<Props> = ({ title, scrollRef }) => (
   <TextBlockSection
     title={title}
     color={colors.secondary}

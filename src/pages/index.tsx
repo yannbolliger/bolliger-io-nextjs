@@ -12,19 +12,29 @@ import { title as aboutTitle } from "../content/About.mdx"
 // @ts-ignore
 import { title as projectsTitle } from "../content/Projects.mdx"
 
-const sections = [
-  { id: "about", title: aboutTitle, component: AboutSection },
-  { id: "projects", title: projectsTitle, component: ProjectsSection },
-  { id: "contact", title: "Kontakt", component: ContactSection },
-]
-
 const Home = () => {
   useEffect(() => smoothscroll.polyfill())
 
-  const sectionsWithRefs = sections.map((section) => ({
-    ref: useRef<HTMLDivElement>(null),
-    ...section,
-  }))
+  const sections = [
+    {
+      id: "about",
+      title: aboutTitle,
+      component: AboutSection,
+      ref: useRef<HTMLDivElement>(null),
+    },
+    {
+      id: "projects",
+      title: projectsTitle,
+      component: ProjectsSection,
+      ref: useRef<HTMLDivElement>(null),
+    },
+    {
+      id: "contact",
+      title: "Kontakt",
+      component: ContactSection,
+      ref: useRef<HTMLDivElement>(null),
+    },
+  ]
 
   return (
     <>
@@ -32,10 +42,14 @@ const Home = () => {
         <title>Bolliger Studios</title>
       </Head>
 
-      <LogoMenuHeader sections={sectionsWithRefs} />
+      <LogoMenuHeader sections={sections} />
 
-      {sectionsWithRefs.map((section) => (
-        <section.component key={section.id} scrollRef={section.ref} />
+      {sections.map((section) => (
+        <section.component
+          title={section.title}
+          key={section.id}
+          scrollRef={section.ref}
+        />
       ))}
     </>
   )
