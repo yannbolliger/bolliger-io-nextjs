@@ -9,7 +9,6 @@ import Document, {
 import { ServerStyleSheet } from "styled-components"
 
 import fetchFontCss from "../api/fetchFontCss"
-import GlobalStyle from "../styled/GlobalStyle"
 
 export default class extends Document {
   /**
@@ -23,12 +22,7 @@ export default class extends Document {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
-            sheet.collectStyles(
-              <>
-                <GlobalStyle />
-                <App {...props} />
-              </>
-            ),
+            sheet.collectStyles(<App {...props} />),
         })
 
       const initialProps = await Document.getInitialProps(ctx)
@@ -54,7 +48,6 @@ export default class extends Document {
         <style dangerouslySetInnerHTML={{ __html: this.props.fontCssString }} />
       </Head>
       <body>
-        <GlobalStyle />
         <Main />
         <NextScript />
       </body>

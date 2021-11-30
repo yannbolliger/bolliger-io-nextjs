@@ -2,6 +2,7 @@ import Head from "next/head"
 import { AppProps } from "next/app"
 
 import { colors } from "../styled"
+import GlobalStyle from "../styled/GlobalStyle"
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
@@ -39,6 +40,7 @@ const App = ({ Component, pageProps }: AppProps) => (
       <meta name="msapplication-TileColor" content={colors.primary} />
       <meta name="theme-color" content={colors.primary} />
     </Head>
+    <GlobalStyle />
     <Component {...pageProps} />
   </>
 )
