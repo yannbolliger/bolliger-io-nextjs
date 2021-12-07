@@ -7,8 +7,10 @@ const fetchFontCss = async () => {
   return fontCssFile.data
     .replace(/\n/g, "")
     .replace(/\s\s+/g, " ")
-    .replace(/\/\*.*\*\//g, "")
+    .replace(/\/\*.*?\*\//g, "")
     .replace(/font-files/g, `${fontDomain}font-files`)
 }
 
 export default fetchFontCss
+
+fetchFontCss().then(console.log)
