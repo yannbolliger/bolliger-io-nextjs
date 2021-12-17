@@ -12,5 +12,3 @@ const fetchFontCss = async () => {
 }
 
 export default fetchFontCss
-
-fetchFontCss().then(console.log)
