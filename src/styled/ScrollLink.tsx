@@ -5,27 +5,34 @@ interface Props {
   targetRef: React.RefObject<HTMLElement>
   onClick?: () => void
   as?: keyof JSX.IntrinsicElements
+  className?: string
 }
 
-const ScrollLink: React.FC<Props> = (props) => {
+const ScrollLink: React.FC<Props> = ({
+  onClick: onClickProp,
+  targetRef,
+  as,
+  children,
+  className,
+}) => {
   const [isClicked, setClicked] = useState(false)
 
   const onClick = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault()
-    if (props.onClick) props.onClick()
+    onClickProp?.()
     setClicked(true)
   }
 
   useEffect(() => {
-    if (isClicked && props.targetRef.current) {
-      props.targetRef.current.scrollIntoView({ behavior: "smooth" })
+    if (isClicked && targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: "smooth" })
       setClicked(false)
     }
-  }, [isClicked])
+  }, [isClicked, targetRef])
 
   return (
-    <Link {...props} onClick={onClick}>
-      {props.children}
+    <Link as={as} onClick={onClick} className={className}>
+      {children}
     </Link>
   )
 }

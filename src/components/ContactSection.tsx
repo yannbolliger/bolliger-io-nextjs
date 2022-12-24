@@ -39,7 +39,13 @@ const ContactSection: React.FC<Props> = ({ title, scrollRef }) => {
       {isFormVisible && (
         <MailFormSection
           scrollRef={formRef}
-          onCloseClick={() => setFormVisible(false)}
+          onCloseClick={() => {
+            scrollRef.current?.scrollIntoView({
+              behavior: "smooth",
+              block: "end",
+            })
+            setTimeout(() => setFormVisible(false), 500)
+          }}
         />
       )}
     </>
