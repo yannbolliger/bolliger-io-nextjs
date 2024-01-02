@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
     font-size: ${baseFontSize}px;
     font-weight: 400;
     line-height: 1.3333;
@@ -20,11 +19,6 @@ const GlobalStyle = createGlobalStyle`
 
     background: ${colors.primary};
     overflow-x: hidden;
-  }
-  @supports (font-variation-settings: normal) {
-    html {
-      font-family: "Inter var", "Inter", "Helvetica Neue", Arial, sans-serif;
-    }
   }
 
   a,

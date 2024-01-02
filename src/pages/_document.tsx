@@ -8,13 +8,7 @@ import Document, {
 } from "next/document"
 import { ServerStyleSheet } from "styled-components"
 
-import fetchFontCss from "../api/fetchFontCss"
-
-interface Props {
-  fontCssString: string
-}
-
-class Doc extends Document<Props> {
+class Doc extends Document {
   /**
    * from styled-components example of next.js App
    */
@@ -30,10 +24,8 @@ class Doc extends Document<Props> {
         })
 
       const initialProps = await Document.getInitialProps(ctx)
-      const fontCssString = await fetchFontCss()
       return {
         ...initialProps,
-        fontCssString,
         styles: (
           <>
             {initialProps.styles}
@@ -48,9 +40,7 @@ class Doc extends Document<Props> {
 
   render = () => (
     <Html>
-      <Head>
-        <style dangerouslySetInnerHTML={{ __html: this.props.fontCssString }} />
-      </Head>
+      <Head />
       <body>
         <Main />
         <NextScript />

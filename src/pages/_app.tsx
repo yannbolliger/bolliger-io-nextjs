@@ -1,8 +1,11 @@
 import Head from "next/head"
 import { AppProps } from "next/app"
+import { Inter } from "next/font/google"
 
 import { colors } from "../styled"
 import GlobalStyle from "../styled/GlobalStyle"
+
+const inter = Inter({ subsets: ["latin"] })
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
@@ -41,7 +44,9 @@ const App = ({ Component, pageProps }: AppProps) => (
       <meta name="theme-color" content={colors.primary} />
     </Head>
     <GlobalStyle />
-    <Component {...pageProps} />
+    <main className={inter.className}>
+      <Component {...pageProps} />
+    </main>
   </>
 )
 
