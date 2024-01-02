@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import Head from "next/head"
 import { init } from "emailjs-com"
 import smoothscroll from "smoothscroll-polyfill"
@@ -7,20 +7,16 @@ import AboutSection from "../components/AboutSection"
 import ContactSection from "../components/ContactSection"
 import LogoMenuHeader from "../components/LogoMenuHeader"
 import ProjectsSection from "../components/ProjectsSection"
-// @ts-ignore
-import { title as aboutTitle } from "../content/About.mdx"
-// @ts-ignore
-import { title as projectsTitle } from "../content/Projects.mdx"
 
 const sections = [
   {
     id: "about",
-    title: aboutTitle,
+    title: "Über uns",
     component: AboutSection,
   },
   {
     id: "projects",
-    title: projectsTitle,
+    title: "Projekte",
     component: ProjectsSection,
   },
   {
