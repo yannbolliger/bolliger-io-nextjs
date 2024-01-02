@@ -1,3 +1,4 @@
+import { PropsWithChildren } from "react"
 import { MDXProvider } from "@mdx-js/react"
 
 import { colors } from "../styled"
@@ -8,7 +9,7 @@ import { MediumTitle } from "../styled/typography"
 import Button from "../styled/Button"
 import Image from "../styled/Image"
 
-interface Props {
+interface Props extends PropsWithChildren {
   fullName: string
   links: { [k: string]: string }
   borderRight?: boolean

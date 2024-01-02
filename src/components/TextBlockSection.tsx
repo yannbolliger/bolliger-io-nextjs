@@ -1,4 +1,4 @@
-import React from "react"
+import React, { PropsWithChildren } from "react"
 import styled from "styled-components"
 import { MDXProvider } from "@mdx-js/react"
 
@@ -7,7 +7,7 @@ import Container from "../styled/Container"
 import SideTitleSection from "../styled/SideTitle"
 import { LargeTitle, MediumParagraph } from "../styled/typography"
 
-interface Props {
+interface Props extends PropsWithChildren {
   title?: string
   color?: string
   borderTop?: boolean

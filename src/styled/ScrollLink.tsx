@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, PropsWithChildren } from "react"
 import styled from "styled-components"
 
-interface Props {
+interface Props extends PropsWithChildren {
   targetRef: React.RefObject<HTMLElement>
   onClick?: () => void
   as?: keyof JSX.IntrinsicElements

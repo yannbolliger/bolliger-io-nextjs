@@ -17,7 +17,7 @@ interface State<T> {
   error: string
 }
 
-export default <T>(initialState: T) => {
+const useValueErrorState = <T>(initialState: T) => {
   const reducer = (state: State<T>, action: Action<T>) => {
     switch (action.type) {
       case "error":
@@ -39,3 +39,5 @@ export default <T>(initialState: T) => {
     setError: (error: string) => dispatch({ type: "error", error }),
   }
 }
+
+export default useValueErrorState

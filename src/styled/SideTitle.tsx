@@ -1,10 +1,11 @@
+import { PropsWithChildren } from "react"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints } from "."
 import { SmallTitle } from "./typography"
 import SplitView from "./SplitView"
 
-interface Props {
+interface Props extends PropsWithChildren {
   title: string
 }
 

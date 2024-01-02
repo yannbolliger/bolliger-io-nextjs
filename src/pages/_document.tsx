@@ -14,7 +14,7 @@ interface Props {
   fontCssString: string
 }
 
-export default class extends Document<Props> {
+class Doc extends Document<Props> {
   /**
    * from styled-components example of next.js App
    */
@@ -58,3 +58,5 @@ export default class extends Document<Props> {
     </Html>
   )
 }
+
+export default Doc
