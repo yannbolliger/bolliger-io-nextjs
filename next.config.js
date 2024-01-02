@@ -1,4 +1,8 @@
-const withMDX = require("@next/mdx")()
+const withMDX = require("@next/mdx")({
+  options: {
+    providerImportSource: "@mdx-js/react",
+  },
+})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
