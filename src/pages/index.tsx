@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import Head from "next/head"
-import smoothscroll from "smoothscroll-polyfill"
 import { init } from "emailjs-com"
+import smoothscroll from "smoothscroll-polyfill"
 
-import LogoMenuHeader from "../components/LogoMenuHeader"
 import AboutSection from "../components/AboutSection"
-import ProjectsSection from "../components/ProjectsSection"
 import ContactSection from "../components/ContactSection"
-
+import LogoMenuHeader from "../components/LogoMenuHeader"
+import ProjectsSection from "../components/ProjectsSection"
 // @ts-ignore
 import { title as aboutTitle } from "../content/About.mdx"
 // @ts-ignore

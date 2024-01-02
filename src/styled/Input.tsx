@@ -1,16 +1,16 @@
-import React from "react"
+import { FunctionComponent } from "react"
 import styled, { css } from "styled-components"
 
-import { borders, baseUnits, breakpoints } from "."
+import { baseUnits, borders, breakpoints } from "."
 
 interface Props {
   label: string
   error?: string
 }
 
-const Input: React.FC<Props & React.InputHTMLAttributes<HTMLInputElement>> = (
-  props
-) => (
+const Input: FunctionComponent<
+  Props & React.InputHTMLAttributes<HTMLInputElement>
+> = (props) => (
   <InputWrapper>
     <BasicInput {...props} placeholder={props.label} />
     {props.error && <ErrorLabel>{props.error}</ErrorLabel>}
@@ -19,7 +19,7 @@ const Input: React.FC<Props & React.InputHTMLAttributes<HTMLInputElement>> = (
 
 export default Input
 
-export const TextArea: React.FC<
+export const TextArea: FunctionComponent<
   Props & React.TextareaHTMLAttributes<HTMLTextAreaElement>
 > = (props) => (
   <InputWrapper fullWidth>

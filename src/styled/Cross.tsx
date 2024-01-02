@@ -1,9 +1,9 @@
-import React from "react"
+import { FunctionComponent } from "react"
 import styled from "styled-components"
 
-import { colors, borderWidth, baseUnits } from "."
+import { baseUnits, borderWidth, colors } from "."
 
-const Cross: React.FC<{ onClick?: () => void }> = ({ onClick }) => (
+const Cross: FunctionComponent<{ onClick?: () => void }> = ({ onClick }) => (
   <CrossWrapper onClick={onClick}>
     <CrossLine />
     <CrossLine up />

@@ -1,11 +1,11 @@
-import React from "react"
+import { ChangeEvent, FormEvent } from "react"
 
 import sendMail from "../api/sendMail"
 import useValueErrorState from "../hooks/useValueErrorState"
-import { SmallTitle, MediumTitle } from "../styled/typography"
+import { ButtonInput } from "../styled/Button"
 import Form from "../styled/Form"
 import Input, { TextArea } from "../styled/Input"
-import { ButtonInput } from "../styled/Button"
+import { MediumTitle, SmallTitle } from "../styled/typography"
 
 const MailForm = () => {
   const isFormSubmitted = useValueErrorState("")
@@ -14,7 +14,7 @@ const MailForm = () => {
   const email = useValueErrorState("")
   const message = useValueErrorState("")
 
-  const onSubmit = (event: React.FormEvent) => {
+  const onSubmit = (event: FormEvent) => {
     event.preventDefault()
     isFormSubmitted.setValue("Wird geschickt...")
     isFormSubmitted.setError("")
@@ -39,7 +39,7 @@ const MailForm = () => {
           label="Name"
           value={name.value}
           error={name.error}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
             name.setValue(event.target.value)
           }
           required

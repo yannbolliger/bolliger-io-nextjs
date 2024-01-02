@@ -1,15 +1,15 @@
-import React from "react"
+import { FunctionComponent, RefObject } from "react"
 import styled from "styled-components"
 
-import { colors, baseUnits, breakpoints } from "../styled"
+import { baseUnits, breakpoints, colors } from "../styled"
 import Container from "../styled/Container"
-import SplitView from "../styled/SplitView"
 import Cross from "../styled/Cross"
 import ScrollLink from "../styled/ScrollLink"
+import SplitView from "../styled/SplitView"
 
 export interface Section {
   id: string
-  ref: React.RefObject<HTMLElement>
+  ref: RefObject<HTMLElement>
   title: string
 }
 
@@ -19,7 +19,7 @@ interface Props {
   onClose?: () => void
 }
 
-const Menu: React.FC<Props> = ({ visible, sections, onClose }) => (
+const Menu: FunctionComponent<Props> = ({ visible, sections, onClose }) => (
   <AnimatedContainer visible={visible} borderBottom color={colors.primaryLight}>
     <SplitViewPadding>
       <LinkWrapper>

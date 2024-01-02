@@ -1,6 +1,6 @@
-import React, { PropsWithChildren } from "react"
-import styled from "styled-components"
+import { FunctionComponent, PropsWithChildren } from "react"
 import { MDXProvider } from "@mdx-js/react"
+import styled from "styled-components"
 
 import { baseUnits, breakpoints } from "../styled"
 import Container from "../styled/Container"
@@ -14,7 +14,7 @@ interface Props extends PropsWithChildren {
   scrollRef?: React.RefObject<HTMLDivElement>
 }
 
-const TextBlockSection: React.FC<Props> = ({
+const TextBlockSection: FunctionComponent<Props> = ({
   title,
   color,
   borderTop,

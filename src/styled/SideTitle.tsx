@@ -1,15 +1,15 @@
-import { PropsWithChildren } from "react"
+import { FunctionComponent, PropsWithChildren } from "react"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints } from "."
-import { SmallTitle } from "./typography"
 import SplitView from "./SplitView"
+import { SmallTitle } from "./typography"
 
 interface Props extends PropsWithChildren {
   title: string
 }
 
-const SideTitleSection: React.FC<Props> = ({ title, children }) => (
+const SideTitleSection: FunctionComponent<Props> = ({ title, children }) => (
   <SplitView>
     <SideMargin>
       <SmallTitle>{title}</SmallTitle>

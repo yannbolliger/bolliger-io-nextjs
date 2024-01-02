@@ -1,4 +1,9 @@
-import React, { useState, useEffect, PropsWithChildren } from "react"
+import {
+  FunctionComponent,
+  PropsWithChildren,
+  useEffect,
+  useState,
+} from "react"
 import styled from "styled-components"
 
 interface Props extends PropsWithChildren {
@@ -8,7 +13,7 @@ interface Props extends PropsWithChildren {
   className?: string
 }
 
-const ScrollLink: React.FC<Props> = ({
+const ScrollLink: FunctionComponent<Props> = ({
   onClick: onClickProp,
   targetRef,
   as,

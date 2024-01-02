@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import { colors, borders, baseUnits, breakpoints } from "."
+
+import { baseUnits, borders, breakpoints, colors } from "."
 
 interface Props {
   borderTop?: boolean

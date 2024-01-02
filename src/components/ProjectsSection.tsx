@@ -1,16 +1,15 @@
-import React from "react"
+import { FunctionComponent, RefObject } from "react"
 
+import Projects from "../content/Projects.mdx"
 import { colors } from "../styled"
 import TextBlockSection from "./TextBlockSection"
 
-import Projects from "../content/Projects.mdx"
-
 interface Props {
   title: string
-  scrollRef: React.RefObject<HTMLDivElement>
+  scrollRef: RefObject<HTMLDivElement>
 }
 
-const ProjectsSection: React.FC<Props> = ({ title, scrollRef }) => (
+const ProjectsSection: FunctionComponent<Props> = ({ title, scrollRef }) => (
   <TextBlockSection
     title={title}
     color={colors.secondary}

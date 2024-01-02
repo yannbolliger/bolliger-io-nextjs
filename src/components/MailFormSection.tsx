@@ -1,19 +1,22 @@
-import React from "react"
+import { FunctionComponent, RefObject } from "react"
 import styled from "styled-components"
 
-import { colors, baseUnits } from "../styled"
+import { baseUnits, colors } from "../styled"
 import Container from "../styled/Container"
 import Cross from "../styled/Cross"
-import SplitView from "../styled/SplitView"
 import { SideMargin } from "../styled/SideTitle"
+import SplitView from "../styled/SplitView"
 import MailForm from "./MailForm"
 
 interface Props {
   onCloseClick: () => void
-  scrollRef: React.RefObject<HTMLDivElement>
+  scrollRef: RefObject<HTMLDivElement>
 }
 
-const MailFormSection: React.FC<Props> = ({ onCloseClick, scrollRef }) => (
+const MailFormSection: FunctionComponent<Props> = ({
+  onCloseClick,
+  scrollRef,
+}) => (
   <Container ref={scrollRef} color={colors.primaryLight} borderTop>
     <SplitView>
       <SideMarginWithBottomMargin>

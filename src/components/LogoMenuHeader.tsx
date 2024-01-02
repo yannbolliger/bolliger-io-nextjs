@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import { FunctionComponent, useState } from "react"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints } from "../styled"
-import Container from "../styled/Container"
 import Burger from "../styled/Burger"
+import Container from "../styled/Container"
 import SplitView from "../styled/SplitView"
 import Menu, { Section } from "./Menu"
 
@@ -11,7 +11,7 @@ interface Props {
   sections: Section[]
 }
 
-const LogoMenuHeader: React.FC<Props> = ({ sections }) => {
+const LogoMenuHeader: FunctionComponent<Props> = ({ sections }) => {
   const [isMenuVisible, setMenuVisible] = useState(false)
 
   return (

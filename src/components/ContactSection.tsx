@@ -1,18 +1,18 @@
-import React, { useState, useRef } from "react"
+import { FunctionComponent, useRef, useState } from "react"
 
 import { colors } from "../styled"
-import { LargeTitle, MediumTitle } from "../styled/typography"
 import Button from "../styled/Button"
 import ScrollLink from "../styled/ScrollLink"
-import TextBlockSection from "./TextBlockSection"
+import { LargeTitle, MediumTitle } from "../styled/typography"
 import MailFormSection from "./MailFormSection"
+import TextBlockSection from "./TextBlockSection"
 
 interface Props {
   title: string
   scrollRef: React.RefObject<HTMLDivElement>
 }
 
-const ContactSection: React.FC<Props> = ({ title, scrollRef }) => {
+const ContactSection: FunctionComponent<Props> = ({ title, scrollRef }) => {
   const [isFormVisible, setFormVisible] = useState(false)
   const formRef = useRef(null)
 

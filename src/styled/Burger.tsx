@@ -1,8 +1,9 @@
+import { FunctionComponent } from "react"
 import styled from "styled-components"
 
-import { colors, borderWidth, baseUnits } from "."
+import { baseUnits, borderWidth, colors } from "."
 
-const Burger: React.FC<{ onClick: () => void }> = ({ onClick }) => (
+const Burger: FunctionComponent<{ onClick: () => void }> = ({ onClick }) => (
   <BurgerWrapper onClick={onClick}>
     <BurgerLine />
     <BurgerLine />

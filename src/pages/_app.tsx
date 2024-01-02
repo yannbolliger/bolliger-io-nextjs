@@ -1,6 +1,6 @@
-import Head from "next/head"
 import { AppProps } from "next/app"
 import { Inter } from "next/font/google"
+import Head from "next/head"
 
 import { colors } from "../styled"
 import GlobalStyle from "../styled/GlobalStyle"

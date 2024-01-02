@@ -1,0 +1,19 @@
+{
+  "extends": "next/core-web-vitals",
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // `react` & `next` related packages come first, then other packages
+          ["^react", "^next", "^@?\\w"],
+          // Our stuff
+          ["^(api|lib)(/.*|$)", "^"],
+          // Style, img, asset imports
+          ["^.+\\.?(css|svg|png|jpg|jpeg|gif)$"]
+        ]
+      }
+    ]
+  }
+}
