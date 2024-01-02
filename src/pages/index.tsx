@@ -12,33 +12,30 @@ import { title as aboutTitle } from "../content/About.mdx"
 // @ts-ignore
 import { title as projectsTitle } from "../content/Projects.mdx"
 
+const sections = [
+  {
+    id: "about",
+    title: aboutTitle,
+    component: AboutSection,
+  },
+  {
+    id: "projects",
+    title: projectsTitle,
+    component: ProjectsSection,
+  },
+  {
+    id: "contact",
+    title: "Kontakt",
+    component: ContactSection,
+  },
+]
+
 const Home = () => {
   // Do all the inits
   useEffect(() => {
     smoothscroll.polyfill()
     init("user_fByLVomFE88sDn2dTvYFK")
   })
-
-  const sections = [
-    {
-      id: "about",
-      title: aboutTitle,
-      component: AboutSection,
-      ref: useRef<HTMLDivElement>(null),
-    },
-    {
-      id: "projects",
-      title: projectsTitle,
-      component: ProjectsSection,
-      ref: useRef<HTMLDivElement>(null),
-    },
-    {
-      id: "contact",
-      title: "Kontakt",
-      component: ContactSection,
-      ref: useRef<HTMLDivElement>(null),
-    },
-  ]
 
   return (
     <>
@@ -50,9 +47,9 @@ const Home = () => {
 
       {sections.map((section) => (
         <section.component
-          title={section.title}
           key={section.id}
-          scrollRef={section.ref}
+          id={section.id}
+          title={section.title}
         />
       ))}
     </>

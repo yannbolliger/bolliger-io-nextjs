@@ -19,6 +19,8 @@ const GlobalStyle = createGlobalStyle`
 
     background: ${colors.primary};
     overflow-x: hidden;
+
+    scroll-behavior: smooth;
   }
 
   a,

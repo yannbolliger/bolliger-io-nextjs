@@ -2,37 +2,33 @@ import { FunctionComponent, useRef, useState } from "react"
 
 import { colors } from "../styled"
 import Button from "../styled/Button"
-import ScrollLink from "../styled/ScrollLink"
 import { LargeTitle, MediumTitle } from "../styled/typography"
 import MailFormSection from "./MailFormSection"
+import { Section } from "./Menu"
 import TextBlockSection from "./TextBlockSection"
 
-interface Props {
-  title: string
-  scrollRef: React.RefObject<HTMLDivElement>
-}
-
-const ContactSection: FunctionComponent<Props> = ({ title, scrollRef }) => {
+const ContactSection: FunctionComponent<Section> = (props) => {
   const [isFormVisible, setFormVisible] = useState(false)
-  const formRef = useRef(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const formRef = useRef<HTMLDivElement>(null)
 
   return (
     <>
-      <TextBlockSection
-        title={title}
-        color={colors.primary}
-        borderTop
-        scrollRef={scrollRef}
-      >
+      <TextBlockSection {...props} color={colors.primary} borderTop>
         <LargeTitle>Say Hi!</LargeTitle>
         <MediumTitle>
-          <ScrollLink
-            as="div"
-            onClick={() => setFormVisible(true)}
-            targetRef={formRef}
+          <div
+            ref={sectionRef}
+            onClick={() => {
+              setFormVisible(true)
+              setTimeout(
+                () => formRef.current?.scrollIntoView({ behavior: "smooth" }),
+                50
+              )
+            }}
           >
             <Button>Email</Button>
-          </ScrollLink>
+          </div>
         </MediumTitle>
       </TextBlockSection>
 
@@ -40,7 +36,7 @@ const ContactSection: FunctionComponent<Props> = ({ title, scrollRef }) => {
         <MailFormSection
           scrollRef={formRef}
           onCloseClick={() => {
-            scrollRef.current?.scrollIntoView({
+            sectionRef.current?.scrollIntoView({
               behavior: "smooth",
               block: "end",
             })

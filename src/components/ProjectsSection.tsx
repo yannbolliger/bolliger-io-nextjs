@@ -1,21 +1,12 @@
-import { FunctionComponent, RefObject } from "react"
+import { FunctionComponent } from "react"
 
 import Projects from "../content/Projects.mdx"
 import { colors } from "../styled"
+import { Section } from "./Menu"
 import TextBlockSection from "./TextBlockSection"
 
-interface Props {
-  title: string
-  scrollRef: RefObject<HTMLDivElement>
-}
-
-const ProjectsSection: FunctionComponent<Props> = ({ title, scrollRef }) => (
-  <TextBlockSection
-    title={title}
-    color={colors.secondary}
-    borderTop
-    scrollRef={scrollRef}
-  >
+const ProjectsSection: FunctionComponent<Section> = (props) => (
+  <TextBlockSection {...props} color={colors.secondary} borderTop>
     <Projects />
   </TextBlockSection>
 )

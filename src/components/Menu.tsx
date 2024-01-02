@@ -1,15 +1,14 @@
-import { FunctionComponent, RefObject } from "react"
+import { FunctionComponent } from "react"
+import Link from "next/link"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints, colors } from "../styled"
 import Container from "../styled/Container"
 import Cross from "../styled/Cross"
-import ScrollLink from "../styled/ScrollLink"
 import SplitView from "../styled/SplitView"
 
 export interface Section {
   id: string
-  ref: RefObject<HTMLElement>
   title: string
 }
 
@@ -24,13 +23,11 @@ const Menu: FunctionComponent<Props> = ({ visible, sections, onClose }) => (
     <SplitViewPadding>
       <LinkWrapper>
         {sections.map((section) => (
-          <ScrollLinkWithMargin
-            targetRef={section.ref}
-            key={section.id}
-            onClick={onClose}
-          >
-            {section.title}
-          </ScrollLinkWithMargin>
+          <LinkWithMargin key={section.id}>
+            <Link href={`#${section.id}`} onClick={onClose}>
+              {section.title}
+            </Link>
+          </LinkWithMargin>
         ))}
       </LinkWrapper>
 
@@ -62,7 +59,7 @@ const LinkWrapper = styled.div`
   }
 `
 
-const ScrollLinkWithMargin = styled(ScrollLink)`
+const LinkWithMargin = styled.div`
   margin: 0;
   margin-bottom: ${baseUnits(0.25)};
 

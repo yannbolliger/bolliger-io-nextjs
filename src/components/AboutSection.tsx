@@ -7,17 +7,13 @@ import Eric, { data as ericData } from "../content/Eric.mdx"
 import Yann, { data as yannData } from "../content/Yann.mdx"
 import SplitView from "../styled/SplitView"
 import AboutPersonSection from "./AboutPersonSection"
+import { Section } from "./Menu"
 import TextBlockSection from "./TextBlockSection"
 
-interface Props {
-  title: string
-  scrollRef: React.RefObject<HTMLDivElement>
-}
-
-const AboutSection: FunctionComponent<Props> = ({ scrollRef, title }) => {
+const AboutSection: FunctionComponent<Section> = (props) => {
   return (
     <>
-      <TextBlockSection title={title} scrollRef={scrollRef}>
+      <TextBlockSection {...props}>
         <About />
       </TextBlockSection>
 
