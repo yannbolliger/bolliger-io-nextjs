@@ -38,7 +38,7 @@ class Doc extends Document {
   }
 
   render = () => (
-    <Html>
+    <Html lang="en">
       <Head />
       <body>
         <Main />

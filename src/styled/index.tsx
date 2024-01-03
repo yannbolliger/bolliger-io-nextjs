@@ -1,6 +1,7 @@
 export const breakpoints = {
   mobile: "640px",
   medium: "950px",
+  large: "1200px",
 }
 
 export const baseFontSize = 18 // in pixel

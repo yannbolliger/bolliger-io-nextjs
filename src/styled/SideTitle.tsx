@@ -25,8 +25,10 @@ export const SideMargin = styled.div`
   @media screen and (min-width: ${breakpoints.mobile}) {
     width: ${baseUnits(2)};
   }
-
   @media screen and (min-width: ${breakpoints.medium}) {
+    width: ${baseUnits(3)};
+  }
+  @media screen and (min-width: ${breakpoints.large}) {
     width: ${baseUnits(4)};
   }
 `
