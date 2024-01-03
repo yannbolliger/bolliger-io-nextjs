@@ -1,7 +1,7 @@
 import { FunctionComponent, PropsWithChildren } from "react"
 import { MDXProvider } from "@mdx-js/react"
 
-import { colors } from "../styled"
+import { baseUnits, colors } from "../styled"
 import Button from "../styled/Button"
 import Container from "../styled/Container"
 import Image from "../styled/Image"
@@ -26,8 +26,10 @@ const AboutPersonSection: FunctionComponent<Props> = ({
       <MediumTitle>{fullName}</MediumTitle>
     </SideTitleSection>
 
+    <MDXProvider components={{ a: Button, img: Image }}>{children}</MDXProvider>
+
     {links && (
-      <SplitView>
+      <SplitView style={{ marginTop: baseUnits(0.5) }}>
         <SideMargin>Links</SideMargin>
         {Object.entries(links).map(([name, url]) => (
           <Button key={url} href={url}>
@@ -36,8 +38,6 @@ const AboutPersonSection: FunctionComponent<Props> = ({
         ))}
       </SplitView>
     )}
-
-    <MDXProvider components={{ a: Button, img: Image }}>{children}</MDXProvider>
   </Container>
 )
 
