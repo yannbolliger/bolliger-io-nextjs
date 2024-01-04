@@ -60,7 +60,7 @@ const ProjectsSection: FunctionComponent<Section> = (props) => (
             color={colors.secondaryLight}
             borderTop
             borderRight={pjs.length > 1 && i == 0}
-            style={{ width: "50%", flexGrow: 1 }}
+            style={{ width: "100%", flexGrow: 1 }}
           >
             <SideTitleSection title={person === "both" ? "Beide" : person}>
               <MediumTitle>{name}</MediumTitle>
@@ -73,8 +73,7 @@ const ProjectsSection: FunctionComponent<Section> = (props) => (
                   width: "100%",
                   height: "auto",
                   maxHeight: 500,
-                  objectFit: "contain",
-                  objectPosition: "left",
+                  objectFit: "cover",
                   margin: `${baseUnits(0.5)} 0`,
                 }}
               />
