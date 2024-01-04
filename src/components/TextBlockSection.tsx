@@ -3,7 +3,9 @@ import { MDXProvider } from "@mdx-js/react"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints } from "../styled"
+import Button from "../styled/Button"
 import Container from "../styled/Container"
+import Image from "../styled/Image"
 import SideTitleSection from "../styled/SideTitle"
 import { LargeTitle, MediumParagraph } from "../styled/typography"
 import { Section } from "./Menu"
@@ -23,7 +25,14 @@ const TextBlockSection: FunctionComponent<Props> = ({
   <ContainerMorePadding id={id} borderTop={borderTop} color={color}>
     <SideTitleSection title={title}>
       <PaddingRightWrapper>
-        <MDXProvider components={{ p: MediumParagraph, h2: LargeTitle }}>
+        <MDXProvider
+          components={{
+            p: MediumParagraph,
+            h2: LargeTitle,
+            a: Button,
+            img: Image,
+          }}
+        >
           {children}
         </MDXProvider>
       </PaddingRightWrapper>

@@ -21,6 +21,7 @@ export const MediumTitle = styled.h3`
   hyphens: auto;
   text-wrap: balance;
   text-overflow: ellipsis;
+  margin-bottom: ${baseUnits(0.5)};
 `
 
 export const LargeTitle = styled.h2`

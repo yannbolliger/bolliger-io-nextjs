@@ -4,6 +4,8 @@ import { baseUnits } from "."
 
 const Image = styled.img`
   width: 100%;
-  margin: ${baseUnits(0.5)} 0;
+  max-height: 500px;
+  object-fit: cover;
+  margin-bottom: ${baseUnits(0.5)};
 `
 export default Image

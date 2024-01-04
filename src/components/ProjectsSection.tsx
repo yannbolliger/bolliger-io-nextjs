@@ -74,7 +74,7 @@ const ProjectsSection: FunctionComponent<Section> = (props) => (
                   height: "auto",
                   maxHeight: 500,
                   objectFit: "cover",
-                  margin: `${baseUnits(0.5)} 0`,
+                  marginBottom: baseUnits(0.5),
                 }}
               />
             )}
