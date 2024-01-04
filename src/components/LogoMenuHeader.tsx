@@ -4,14 +4,16 @@ import styled from "styled-components"
 import { baseUnits, breakpoints } from "../styled"
 import Burger from "../styled/Burger"
 import Container from "../styled/Container"
+import Logo from "../styled/Logo"
 import SplitView from "../styled/SplitView"
 import Menu, { Section } from "./Menu"
 
 interface Props {
   sections: Section[]
+  logoWords?: [string, string]
 }
 
-const LogoMenuHeader: FunctionComponent<Props> = ({ sections }) => {
+const LogoMenuHeader: FunctionComponent<Props> = ({ sections, logoWords }) => {
   const [isMenuVisible, setMenuVisible] = useState(false)
 
   return (
@@ -23,7 +25,7 @@ const LogoMenuHeader: FunctionComponent<Props> = ({ sections }) => {
       />
       <Container>
         <SplitViewTopPadding>
-          <Logo src="/BST-Logo.svg" />
+          <Logo words={logoWords} />
 
           {!isMenuVisible && <Burger onClick={() => setMenuVisible(true)} />}
         </SplitViewTopPadding>
@@ -34,17 +36,11 @@ const LogoMenuHeader: FunctionComponent<Props> = ({ sections }) => {
 
 const SplitViewTopPadding = styled(SplitView)`
   flex-wrap: nowrap;
-  padding-top: 0;
   justify-content: space-between;
 
   @media screen and (min-width: ${breakpoints.mobile}) {
     padding-top: ${baseUnits(0.5)};
   }
-`
-
-const Logo = styled.img`
-  width: ${baseUnits(6.28)};
-  max-width: calc(100% - ${baseUnits(1)});
 `
 
 export default LogoMenuHeader
