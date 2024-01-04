@@ -18,7 +18,7 @@ const LogoBar = styled.div`
   background: ${colors.textColor};
   height: 0.15em;
   width: 100%;
-  min-width: 1em;
+  min-width: 2em;
   margin: 0.7em;
   margin-top: 1em;
 `
