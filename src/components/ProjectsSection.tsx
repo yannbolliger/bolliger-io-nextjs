@@ -1,13 +1,10 @@
 import { FunctionComponent } from "react"
-import Image from "next/image"
 import { chunk } from "lodash"
 
 import Projects from "../content/Projects.mdx"
-import { baseUnits, colors } from "../styled"
-import Container from "../styled/Container"
-import SideTitleSection from "../styled/SideTitleSection"
+import { colors } from "../styled"
+import ItemContainer from "../styled/ItemContainer"
 import SplitView from "../styled/SplitView"
-import { MediumTitle } from "../styled/typography"
 import { Section } from "./Menu"
 import TextBlockSection from "./TextBlockSection"
 
@@ -55,31 +52,16 @@ const ProjectsSection: FunctionComponent<Section> = (props) => (
     {chunk(projects, 2).map((pjs) => (
       <SplitView key={pjs.map((p) => p.name).join("-")}>
         {pjs.map(({ name, person, img, desc }, i) => (
-          <Container
+          <ItemContainer
             key={name}
+            title={name}
+            sideTitle={person === "both" ? "Beide" : person}
             color={colors.secondaryLight}
-            borderTop
+            img={{ src: img, alt: name }}
             borderRight={pjs.length > 1 && i == 0}
-            style={{ width: "100%", flexGrow: 1 }}
           >
-            <SideTitleSection title={person === "both" ? "Beide" : person}>
-              <MediumTitle>{name}</MediumTitle>
-            </SideTitleSection>
-            {img && (
-              <Image
-                src={img}
-                alt={name}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  maxHeight: 500,
-                  objectFit: "cover",
-                  marginBottom: baseUnits(0.5),
-                }}
-              />
-            )}
             <p>{desc}</p>
-          </Container>
+          </ItemContainer>
         ))}
       </SplitView>
     ))}

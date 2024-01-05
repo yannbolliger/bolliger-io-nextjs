@@ -4,7 +4,8 @@ import { MDXProvider } from "@mdx-js/react"
 import { baseUnits, colors } from "../styled"
 import Button from "../styled/Button"
 import Container from "../styled/Container"
-import Image from "../styled/Image"
+import Img from "../styled/Img"
+import ItemContainer from "../styled/ItemContainer"
 import SideTitleSection, { SideMargin } from "../styled/SideTitleSection"
 import SplitView from "../styled/SplitView"
 import { MediumTitle } from "../styled/typography"
@@ -21,13 +22,13 @@ const AboutPersonSection: FunctionComponent<Props> = ({
   links,
   children,
 }) => (
-  <Container color={colors.primaryLight} borderRight={borderRight} borderTop>
-    <SideTitleSection title="Partner">
-      <MediumTitle>{fullName}</MediumTitle>
-    </SideTitleSection>
-
-    <MDXProvider components={{ a: Button, img: Image }}>{children}</MDXProvider>
-
+  <ItemContainer
+    color={colors.primaryLight}
+    borderRight={borderRight}
+    title={fullName}
+    sideTitle="Partner"
+  >
+    {children}
     {links && (
       <SplitView style={{ marginTop: baseUnits(0.5) }}>
         <SideMargin>Links</SideMargin>
@@ -38,7 +39,7 @@ const AboutPersonSection: FunctionComponent<Props> = ({
         ))}
       </SplitView>
     )}
-  </Container>
+  </ItemContainer>
 )
 
 export default AboutPersonSection
