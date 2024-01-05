@@ -30,6 +30,7 @@ const SideTitleSection: FunctionComponent<Props> = ({
 export const SideMargin = styled.div`
   flex-shrink: 0;
   width: 100%;
+  padding-right: ${baseUnits(0.25)};
 
   @media screen and (min-width: ${breakpoints.mobile}) {
     width: ${baseUnits(2)};

@@ -29,6 +29,7 @@ const LogoWidth = styled(SideMargin)`
   display: inline-flex;
   flex-flow: row nowrap;
   align-items: center;
+  padding: 0;
 `
 
 interface Props {
