@@ -39,7 +39,7 @@ const Home = () => {
         <title>Bolliger Studios</title>
       </Head>
 
-      <LogoMenuHeader sections={sections} />
+      <LogoMenuHeader entries={[...sections]} />
 
       {sections.map((section) => (
         <section.component

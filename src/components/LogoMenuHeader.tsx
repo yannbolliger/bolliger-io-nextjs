@@ -6,21 +6,21 @@ import Burger from "../styled/Burger"
 import Container from "../styled/Container"
 import Logo from "../styled/Logo"
 import SplitView from "../styled/SplitView"
-import Menu, { Section } from "./Menu"
+import Menu, { MenuProps } from "./Menu"
 
 interface Props {
-  sections: Section[]
+  entries: MenuProps["entries"]
   logoWords?: [string, string]
 }
 
-const LogoMenuHeader: FunctionComponent<Props> = ({ sections, logoWords }) => {
+const LogoMenuHeader: FunctionComponent<Props> = ({ entries, logoWords }) => {
   const [isMenuVisible, setMenuVisible] = useState(false)
 
   return (
     <>
       <Menu
         visible={isMenuVisible}
-        sections={sections}
+        entries={entries}
         onClose={() => setMenuVisible(false)}
       />
       <Container>

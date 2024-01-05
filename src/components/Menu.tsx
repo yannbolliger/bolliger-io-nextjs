@@ -1,34 +1,44 @@
-import { FunctionComponent } from "react"
+import { FunctionComponent, ReactNode } from "react"
 import Link from "next/link"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints, colors } from "../styled"
+import Button from "../styled/Button"
 import Container from "../styled/Container"
 import Cross from "../styled/Cross"
 import SplitView from "../styled/SplitView"
 
 export interface Section {
   id: string
-  title: string
+  title: ReactNode
 }
 
-interface Props {
-  sections: Section[]
+interface Href {
+  href: string
+  title: ReactNode
+}
+
+export interface MenuProps {
+  entries: (Section | Href)[]
   visible?: boolean
   onClose?: () => void
 }
 
-const Menu: FunctionComponent<Props> = ({ visible, sections, onClose }) => (
+const Menu: FunctionComponent<MenuProps> = ({ visible, entries, onClose }) => (
   <AnimatedContainer visible={visible} borderBottom color={colors.primaryLight}>
     <SplitViewPadding>
       <LinkWrapper>
-        {sections.map((section) => (
-          <LinkWithMargin key={section.id}>
-            <Link href={`#${section.id}`} onClick={onClose}>
-              {section.title}
+        {entries
+          .map((e) =>
+            "id" in e
+              ? { href: `#${e.id}`, ...e }
+              : { ...e, title: <Button as="span">{e.title}</Button> }
+          )
+          .map(({ href, title }) => (
+            <Link key={href} href={href} onClick={onClose}>
+              {title}
             </Link>
-          </LinkWithMargin>
-        ))}
+          ))}
       </LinkWrapper>
 
       <Cross onClick={onClose} />
@@ -53,19 +63,11 @@ const SplitViewPadding = styled(SplitView)`
 const LinkWrapper = styled.div`
   display: flex;
   flex-flow: column nowrap;
+  row-gap: ${baseUnits(0.5)};
+  column-gap: ${baseUnits(1)};
 
   @media screen and (min-width: ${breakpoints.mobile}) {
-    flex-flow: row nowrap;
-  }
-`
-
-const LinkWithMargin = styled.div`
-  margin: 0;
-  margin-bottom: ${baseUnits(0.25)};
-
-  @media screen and (min-width: ${breakpoints.mobile}) {
-    margin: 0;
-    margin-right: ${baseUnits(1)};
+    flex-flow: row wrap;
   }
 `
 

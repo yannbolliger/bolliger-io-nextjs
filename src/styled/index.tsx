@@ -6,8 +6,8 @@ export const breakpoints = {
 
 export const baseFontSize = 18 // in pixel
 
+const remToUnitFactor = 2.7777777777
 export const baseUnits = (factor: number) => {
-  const remToUnitFactor = 2.7777777777
   const roundedToHalfPixel =
     Math.round(factor * remToUnitFactor * baseFontSize * 2) / 2.0
 

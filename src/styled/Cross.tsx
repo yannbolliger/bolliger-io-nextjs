@@ -17,6 +17,8 @@ const CrossWrapper = styled.div`
 
   width: ${baseUnits(0.5)};
   height: ${baseUnits(0.5)};
+  flex-shrink: 0;
+  margin-left: ${baseUnits(0.5)};
 
   cursor: pointer;
 `

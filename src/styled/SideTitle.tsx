@@ -1,4 +1,4 @@
-import { FunctionComponent, PropsWithChildren } from "react"
+import { FunctionComponent, PropsWithChildren, ReactNode } from "react"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints } from "."
@@ -6,7 +6,7 @@ import SplitView from "./SplitView"
 import { SmallTitle } from "./typography"
 
 interface Props extends PropsWithChildren {
-  title: string
+  title: ReactNode
 }
 
 const SideTitleSection: FunctionComponent<Props> = ({ title, children }) => (
