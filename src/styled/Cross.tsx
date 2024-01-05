@@ -4,8 +4,13 @@ import styled from "styled-components"
 import { baseUnits, borderWidth, colors } from "."
 import { commonIconStyle } from "./Burger"
 
-const Cross: FunctionComponent<{ onClick?: () => void }> = ({ onClick }) => (
-  <CrossWrapper onClick={onClick}>
+interface Props {
+  onClick?: () => void
+  className?: string
+}
+
+const Cross: FunctionComponent<Props> = (props) => (
+  <CrossWrapper {...props}>
     <CrossLine />
     <CrossLine up />
   </CrossWrapper>

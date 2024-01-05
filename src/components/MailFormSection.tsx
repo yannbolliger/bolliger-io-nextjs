@@ -1,11 +1,10 @@
 import { FunctionComponent, RefObject } from "react"
 import styled from "styled-components"
 
-import { baseUnits, colors } from "../styled"
+import { colors } from "../styled"
 import Container from "../styled/Container"
 import Cross from "../styled/Cross"
-import { SideMargin } from "../styled/SideTitle"
-import SplitView from "../styled/SplitView"
+import SideTitleSection from "../styled/SideTitleSection"
 import MailForm from "./MailForm"
 
 interface Props {
@@ -13,23 +12,23 @@ interface Props {
   scrollRef: RefObject<HTMLDivElement>
 }
 
+const FixedCross = styled(Cross)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0;
+`
+
 const MailFormSection: FunctionComponent<Props> = ({
   onCloseClick,
   scrollRef,
 }) => (
   <Container ref={scrollRef} color={colors.primaryLight} borderTop>
-    <SplitView>
-      <SideMarginWithBottomMargin>
-        <Cross onClick={onCloseClick} />
-      </SideMarginWithBottomMargin>
-
+    <SideTitleSection paddingRight>
+      <FixedCross onClick={onCloseClick} />
       <MailForm />
-    </SplitView>
+    </SideTitleSection>
   </Container>
 )
-
-const SideMarginWithBottomMargin = styled(SideMargin)`
-  margin-bottom: ${baseUnits(0.5)};
-`
 
 export default MailFormSection
