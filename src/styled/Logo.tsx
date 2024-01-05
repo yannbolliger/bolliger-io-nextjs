@@ -2,7 +2,7 @@ import { FunctionComponent } from "react"
 import styled from "styled-components"
 
 import { colors } from "."
-import { SideMargin } from "./SideTitle"
+import { SideMargin } from "./SideTitleSection"
 import { MediumTitle } from "./typography"
 
 const LogoFont = styled(MediumTitle)`

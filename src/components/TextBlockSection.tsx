@@ -6,7 +6,7 @@ import { baseUnits, breakpoints } from "../styled"
 import Button from "../styled/Button"
 import Container from "../styled/Container"
 import Image from "../styled/Image"
-import SideTitleSection from "../styled/SideTitle"
+import SideTitleSection from "../styled/SideTitleSection"
 import { LargeTitle, MediumParagraph } from "../styled/typography"
 import { Section } from "./Menu"
 
@@ -23,19 +23,17 @@ const TextBlockSection: FunctionComponent<Props> = ({
   children,
 }) => (
   <ContainerMorePadding id={id} borderTop={borderTop} color={color}>
-    <SideTitleSection title={title}>
-      <PaddingRightWrapper>
-        <MDXProvider
-          components={{
-            p: MediumParagraph,
-            h2: LargeTitle,
-            a: Button,
-            img: Image,
-          }}
-        >
-          {children}
-        </MDXProvider>
-      </PaddingRightWrapper>
+    <SideTitleSection title={title} paddingRight>
+      <MDXProvider
+        components={{
+          p: MediumParagraph,
+          h2: LargeTitle,
+          a: Button,
+          img: Image,
+        }}
+      >
+        {children}
+      </MDXProvider>
     </SideTitleSection>
   </ContainerMorePadding>
 )
@@ -44,18 +42,6 @@ const ContainerMorePadding = styled(Container)`
   @media screen and (min-width: ${breakpoints.mobile}) {
     padding-top: ${baseUnits(1)};
     padding-bottom: ${baseUnits(1)};
-  }
-`
-
-const PaddingRightWrapper = styled.div`
-  padding-right: 0;
-
-  @media screen and (min-width: ${breakpoints.mobile}) {
-    padding-right: ${baseUnits(2)};
-  }
-
-  @media screen and (min-width: ${breakpoints.medium}) {
-    padding-right: ${baseUnits(4)};
   }
 `
 

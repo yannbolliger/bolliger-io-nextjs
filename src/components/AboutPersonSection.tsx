@@ -5,7 +5,7 @@ import { baseUnits, colors } from "../styled"
 import Button from "../styled/Button"
 import Container from "../styled/Container"
 import Image from "../styled/Image"
-import SideTitleSection, { SideMargin } from "../styled/SideTitle"
+import SideTitleSection, { SideMargin } from "../styled/SideTitleSection"
 import SplitView from "../styled/SplitView"
 import { MediumTitle } from "../styled/typography"
 
