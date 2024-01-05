@@ -2,6 +2,7 @@ import { FunctionComponent } from "react"
 import styled from "styled-components"
 
 import { baseUnits, borderWidth, colors } from "."
+import { commonIconStyle } from "./Burger"
 
 const Cross: FunctionComponent<{ onClick?: () => void }> = ({ onClick }) => (
   <CrossWrapper onClick={onClick}>
@@ -13,20 +14,15 @@ const Cross: FunctionComponent<{ onClick?: () => void }> = ({ onClick }) => (
 const CrossWrapper = styled.div`
   display: block;
   position: relative;
-  align-self: center;
 
-  width: ${baseUnits(0.5)};
+  ${commonIconStyle}
   height: ${baseUnits(0.5)};
-  flex-shrink: 0;
-  margin-left: ${baseUnits(0.5)};
-
-  cursor: pointer;
 `
 
 const CrossLine = styled.span<{ up?: boolean }>`
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 35%;
   transform: ${(props) => (props.up ? "rotate(-45deg)" : "rotate(45deg)")};
 
   height: ${borderWidth};

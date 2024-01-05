@@ -3,6 +3,7 @@ import Link from "next/link"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints, colors } from "../styled"
+import { verticalAlignMargin } from "../styled/Burger"
 import Button from "../styled/Button"
 import Container from "../styled/Container"
 import Cross from "../styled/Cross"
@@ -65,6 +66,7 @@ const LinkWrapper = styled.div`
   flex-flow: column nowrap;
   row-gap: ${baseUnits(0.5)};
   column-gap: ${baseUnits(1)};
+  padding-top: ${verticalAlignMargin};
 
   @media screen and (min-width: ${breakpoints.mobile}) {
     flex-flow: row wrap;
