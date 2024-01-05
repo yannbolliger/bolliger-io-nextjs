@@ -12,6 +12,7 @@ const LogoFont = styled(MediumTitle)`
   letter-spacing: 0.011em;
   margin: 0;
   user-select: none;
+  hyphens: none;
 `
 
 const LogoBar = styled.div`
