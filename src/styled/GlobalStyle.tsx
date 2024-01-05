@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
-import { baseFontSize, colors } from "."
+import { baseFontSize, baseUnits, colors } from "."
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -35,6 +35,10 @@ const GlobalStyle = createGlobalStyle`
 
   a:hover {
     font-style: italic;
+  }
+
+  p {
+    margin-bottom: ${baseUnits(0.25)};
   }
 `
 

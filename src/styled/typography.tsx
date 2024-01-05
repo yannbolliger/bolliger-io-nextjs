@@ -33,4 +33,5 @@ export const LargeTitle = styled.h2`
 
 export const MediumParagraph = styled.p`
   ${medium}
+  margin-bottom: 0;
 `

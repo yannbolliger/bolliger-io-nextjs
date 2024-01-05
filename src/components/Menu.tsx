@@ -1,47 +1,21 @@
-import { FunctionComponent, ReactNode } from "react"
-import Link from "next/link"
+import { FunctionComponent } from "react"
 import styled from "styled-components"
 
 import { baseUnits, breakpoints, colors } from "../styled"
 import { verticalAlignMargin } from "../styled/Burger"
-import Button from "../styled/Button"
 import Container from "../styled/Container"
 import Cross from "../styled/Cross"
+import LinkList, { LinkListProps } from "../styled/LinkList"
 import SplitView from "../styled/SplitView"
 
-export interface Section {
-  id: string
-  title: ReactNode
-}
-
-interface Href {
-  href: string
-  title: ReactNode
-}
-
-export interface MenuProps {
-  entries: (Section | Href)[]
+export interface MenuProps extends LinkListProps {
   visible?: boolean
-  onClose?: () => void
 }
 
-const Menu: FunctionComponent<MenuProps> = ({ visible, entries, onClose }) => (
+const Menu: FunctionComponent<MenuProps> = ({ visible, onClose, entries }) => (
   <AnimatedContainer visible={visible} borderBottom color={colors.primaryLight}>
     <SplitViewPadding>
-      <LinkWrapper>
-        {entries
-          .map((e) =>
-            "id" in e
-              ? { href: `#${e.id}`, ...e }
-              : { ...e, title: <Button as="span">{e.title}</Button> }
-          )
-          .map(({ href, title }) => (
-            <Link key={href} href={href} onClick={onClose}>
-              {title}
-            </Link>
-          ))}
-      </LinkWrapper>
-
+      <LinkListAligned {...{ onClose, entries }} />
       <Cross onClick={onClose} />
     </SplitViewPadding>
   </AnimatedContainer>
@@ -61,16 +35,8 @@ const SplitViewPadding = styled(SplitView)`
   }
 `
 
-const LinkWrapper = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  row-gap: ${baseUnits(0.5)};
-  column-gap: ${baseUnits(1)};
+const LinkListAligned = styled(LinkList)`
   padding-top: ${verticalAlignMargin};
-
-  @media screen and (min-width: ${breakpoints.mobile}) {
-    flex-flow: row wrap;
-  }
 `
 
 export default Menu
