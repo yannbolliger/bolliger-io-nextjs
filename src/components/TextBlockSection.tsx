@@ -6,9 +6,9 @@ import { baseUnits, breakpoints } from "../styled"
 import Button from "../styled/Button"
 import Container from "../styled/Container"
 import Img from "../styled/Img"
+import { Section } from "../styled/LinkList"
 import SideTitleSection from "../styled/SideTitleSection"
 import { LargeTitle, MediumParagraph } from "../styled/typography"
-import { Section } from "./Menu"
 
 interface Props extends PropsWithChildren, Section {
   color?: string

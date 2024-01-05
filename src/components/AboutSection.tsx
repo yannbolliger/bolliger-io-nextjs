@@ -5,9 +5,9 @@ import About from "../content/About.mdx"
 import Eric, { data as ericData } from "../content/Eric.mdx"
 // @ts-ignore
 import Yann, { data as yannData } from "../content/Yann.mdx"
+import { Section } from "../styled/LinkList"
 import SplitView from "../styled/SplitView"
 import AboutPersonSection from "./AboutPersonSection"
-import { Section } from "./Menu"
 import TextBlockSection from "./TextBlockSection"
 
 const AboutSection: FunctionComponent<Section> = (props) => {

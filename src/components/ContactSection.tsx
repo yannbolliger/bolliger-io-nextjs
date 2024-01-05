@@ -2,9 +2,9 @@ import { FunctionComponent, useRef, useState } from "react"
 
 import { colors } from "../styled"
 import Button from "../styled/Button"
+import { Section } from "../styled/LinkList"
 import { LargeTitle, MediumTitle } from "../styled/typography"
 import MailFormSection from "./MailFormSection"
-import { Section } from "./Menu"
 import TextBlockSection from "./TextBlockSection"
 
 const ContactSection: FunctionComponent<Section> = (props) => {
