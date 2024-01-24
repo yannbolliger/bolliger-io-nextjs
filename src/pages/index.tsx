@@ -12,8 +12,8 @@ const sections = [
     component: AboutSection,
   },
   {
-    id: "projects",
-    title: "Projekte",
+    id: "interests",
+    title: "Interessen",
     component: ProjectsSection,
   },
   {
