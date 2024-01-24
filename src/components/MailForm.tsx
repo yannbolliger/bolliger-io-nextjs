@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useEffect } from "react"
 import { init } from "emailjs-com"
 
-import sendMail from "../api/sendMail"
 import useValueErrorState from "../hooks/useValueErrorState"
+import sendMail from "../lib/sendMail"
 import { ButtonInput } from "../styled/Button"
 import Form from "../styled/Form"
 import Input, { TextArea } from "../styled/Input"

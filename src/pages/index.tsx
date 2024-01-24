@@ -1,9 +1,11 @@
+import { FunctionComponent } from "react"
 import Head from "next/head"
 
 import AboutSection from "../components/AboutSection"
 import ContactSection from "../components/ContactSection"
 import LogoMenuHeader from "../components/LogoMenuHeader"
 import ProjectsSection from "../components/ProjectsSection"
+import { WithLocale, withLocaleStaticProps } from "../lib/locale"
 
 const sections = [
   {
@@ -23,7 +25,7 @@ const sections = [
   },
 ]
 
-const Home = () => (
+const Home: FunctionComponent<WithLocale> = ({}) => (
   <>
     <Head>
       <title>Bolliger Studios</title>
@@ -40,5 +42,7 @@ const Home = () => (
     ))}
   </>
 )
+
+export const getStaticProps = withLocaleStaticProps
 
 export default Home
