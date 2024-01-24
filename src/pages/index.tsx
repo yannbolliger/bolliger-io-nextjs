@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 import Head from "next/head"
 import { init } from "emailjs-com"
-import smoothscroll from "smoothscroll-polyfill"
 
 import AboutSection from "../components/AboutSection"
 import ContactSection from "../components/ContactSection"
@@ -29,7 +28,6 @@ const sections = [
 const Home = () => {
   // Do all the inits
   useEffect(() => {
-    smoothscroll.polyfill()
     init("user_fByLVomFE88sDn2dTvYFK")
   })
 
