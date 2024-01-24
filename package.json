@@ -15,7 +15,7 @@
     "@next/mdx": "^14.0.4",
     "emailjs-com": "^3.2.0",
     "lodash": "^4.17.21",
-    "next": "^14.0.4",
+    "next": "^14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.33.2",
@@ -29,7 +29,7 @@
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@types/styled-components": "^5.1.15",
     "eslint": "7",
-    "eslint-config-next": "^14.0.4",
+    "eslint-config-next": "^14.1.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "typescript": "^4.5.2"
   },
