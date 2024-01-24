@@ -1,6 +1,4 @@
-import { useEffect } from "react"
 import Head from "next/head"
-import { init } from "emailjs-com"
 
 import AboutSection from "../components/AboutSection"
 import ContactSection from "../components/ContactSection"
@@ -25,29 +23,22 @@ const sections = [
   },
 ]
 
-const Home = () => {
-  // Do all the inits
-  useEffect(() => {
-    init("user_fByLVomFE88sDn2dTvYFK")
-  })
+const Home = () => (
+  <>
+    <Head>
+      <title>Bolliger Studios</title>
+    </Head>
 
-  return (
-    <>
-      <Head>
-        <title>Bolliger Studios</title>
-      </Head>
+    <LogoMenuHeader entries={[...sections]} />
 
-      <LogoMenuHeader entries={[...sections]} />
-
-      {sections.map((section) => (
-        <section.component
-          key={section.id}
-          id={section.id}
-          title={section.title}
-        />
-      ))}
-    </>
-  )
-}
+    {sections.map((section) => (
+      <section.component
+        key={section.id}
+        id={section.id}
+        title={section.title}
+      />
+    ))}
+  </>
+)
 
 export default Home

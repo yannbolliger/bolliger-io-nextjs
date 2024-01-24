@@ -1,4 +1,5 @@
-import { ChangeEvent, FormEvent } from "react"
+import { ChangeEvent, FormEvent, useEffect } from "react"
+import { init } from "emailjs-com"
 
 import sendMail from "../api/sendMail"
 import useValueErrorState from "../hooks/useValueErrorState"
@@ -8,6 +9,10 @@ import Input, { TextArea } from "../styled/Input"
 import { MediumTitle, SmallTitle } from "../styled/typography"
 
 const MailForm = () => {
+  useEffect(() => {
+    init("user_fByLVomFE88sDn2dTvYFK")
+  })
+
   const isFormSubmitted = useValueErrorState("")
 
   const name = useValueErrorState("")
