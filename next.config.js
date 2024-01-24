@@ -8,8 +8,10 @@ const withMDX = require("@next/mdx")({
 const nextConfig = {
   // Configure `pageExtensions` to include MDX files
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
-  output: "export",
-  images: { unoptimized: true },
+  i18n: {
+    locales: ["en", "de"],
+    defaultLocale: "en",
+  },
 }
 
 module.exports = withMDX(nextConfig)
