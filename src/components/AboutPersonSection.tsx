@@ -1,47 +1,48 @@
-import { ComponentProps, FunctionComponent, PropsWithChildren } from "react"
+import { ComponentProps, FunctionComponent, ReactNode } from "react"
 import Image from "next/image"
 
 import { colors } from "../styled"
 import ItemContainer from "../styled/ItemContainer"
-import LinkList from "../styled/LinkList"
+import LinkList, { LinkListProps } from "../styled/LinkList"
 
-interface Props extends PropsWithChildren {
-  fullName: string
+interface Props {
+  firstName: string
   detailHref?: string
-  links: { [k: string]: string }
+  links: LinkListProps["entries"]
   borderRight?: boolean
   img?: ComponentProps<typeof Image>["src"]
+  about?: ReactNode
 }
 
 const AboutPersonSection: FunctionComponent<Props> = ({
   borderRight,
   detailHref,
-  fullName,
+  firstName,
   links,
-  children,
+  about,
   img,
-}) => (
-  <ItemContainer
-    sideTitle="Partner"
-    color={colors.primaryLight}
-    borderRight={borderRight}
-    title={fullName}
-    img={img ? { src: img, alt: fullName } : undefined}
-    href={detailHref}
-  >
-    {children}
-    {(detailHref || links) && (
-      <LinkList
-        entries={[
-          ...(detailHref ? [{ href: detailHref, title: "Mehr" }] : []),
-          ...Object.entries(links).map(([title, href]) => ({
-            title,
-            href,
-          })),
-        ]}
-      />
-    )}
-  </ItemContainer>
-)
+}) => {
+  const fullName = `${firstName} Bolliger`
+  return (
+    <ItemContainer
+      sideTitle="Partner"
+      color={colors.primaryLight}
+      borderRight={borderRight}
+      title={fullName}
+      img={img ? { src: img, alt: fullName } : undefined}
+      href={detailHref}
+    >
+      {about}
+      {(detailHref || links) && (
+        <LinkList
+          entries={[
+            ...(detailHref ? [{ href: detailHref, title: "Mehr" }] : []),
+            ...(links || []),
+          ]}
+        />
+      )}
+    </ItemContainer>
+  )
+}
 
 export default AboutPersonSection

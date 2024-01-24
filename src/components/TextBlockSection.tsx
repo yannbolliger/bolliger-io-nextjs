@@ -10,7 +10,7 @@ import { Section } from "../styled/LinkList"
 import SideTitleSection from "../styled/SideTitleSection"
 import { LargeTitle, MediumParagraph } from "../styled/typography"
 
-interface Props extends PropsWithChildren, Section {
+interface Props extends PropsWithChildren, Partial<Section> {
   color?: string
   borderTop?: boolean
 }
