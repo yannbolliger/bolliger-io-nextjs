@@ -12,6 +12,15 @@ const nextConfig = {
     locales: ["en", "de"],
     defaultLocale: "en",
   },
+  rewrites: () => ({
+    beforeFiles: [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "yann\\..*" }],
+        destination: "/yann/:path*",
+      },
+    ],
+  }),
 }
 
 module.exports = withMDX(nextConfig)

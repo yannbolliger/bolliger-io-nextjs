@@ -29,6 +29,11 @@ const sections = [
   },
 ]
 
+const baseDomain =
+  process.env.NODE_ENV == "production"
+    ? "https://bolliger.io"
+    : "http://localhost:3000"
+
 const YannPage = () => (
   <>
     <Head>
@@ -37,7 +42,7 @@ const YannPage = () => (
 
     <LogoMenuHeader
       logoWords={[yannData.firstName, "Bolliger"]}
-      entries={[...sections, { href: "/", title: "Home" }]}
+      entries={[...sections, { href: baseDomain, title: "Home" }]}
     />
 
     <TextBlockSection {...sections[0]}>
