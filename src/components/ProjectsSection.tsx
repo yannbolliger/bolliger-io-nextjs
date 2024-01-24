@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react"
 import { chunk } from "lodash"
 
-import Projects from "../content/Projects.mdx"
 import { colors } from "../styled"
 import ItemContainer from "../styled/ItemContainer"
 import { Section } from "../styled/LinkList"
@@ -11,6 +10,7 @@ import TextBlockSection from "./TextBlockSection"
 import dj from "../content/djing.jpg"
 import moderation from "../content/moderation.png"
 import portrait from "../content/portrait.jpg"
+import Projects from "../content/Projects.mdx"
 
 const projects = [
   {

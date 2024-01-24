@@ -1,6 +1,5 @@
 import Eric from "../content/Eric.mdx"
 import Yann from "../content/Yann.mdx"
-
 import ericImg from "./eric.jpg"
 import yannImg from "./yann.jpg"
 

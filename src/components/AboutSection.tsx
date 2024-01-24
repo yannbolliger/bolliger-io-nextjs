@@ -1,11 +1,12 @@
 import { FunctionComponent } from "react"
 
-import About from "../content/About.mdx"
 import partners from "../content/partners"
 import { Section } from "../styled/LinkList"
 import SplitView from "../styled/SplitView"
 import AboutPersonSection from "./AboutPersonSection"
 import TextBlockSection from "./TextBlockSection"
+
+import About from "../content/About.mdx"
 
 const AboutSection: FunctionComponent<Section> = (props) => (
   <>

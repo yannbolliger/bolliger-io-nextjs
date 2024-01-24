@@ -1,5 +1,5 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals"],
   "plugins": ["simple-import-sort"],
   "rules": {
     "simple-import-sort/imports": [
@@ -11,9 +11,11 @@
           // Our stuff
           ["^(api|lib)(/.*|$)", "^"],
           // Style, img, asset imports
-          ["^.+\\.?(css|svg|png|jpg|jpeg|gif)$"]
+          ["^.+\\.?(md|mdx|css|svg|png|jpg|jpeg|gif)$"]
         ]
       }
-    ]
+    ],
+    "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    "arrow-body-style": ["error", "as-needed"]
   }
 }
