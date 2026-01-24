@@ -39,7 +39,7 @@ const projects = [
     name: "Fotografie",
     person: "Éric",
     img: portrait,
-    desc: "Ob Unternehmensporträt oder ...",
+    desc: "Ob Unternehmensporträt oder Anlass, Éric fängt die Stimmung ein.",
   },
 ]
 
