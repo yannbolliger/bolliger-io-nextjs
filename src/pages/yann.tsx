@@ -12,27 +12,29 @@ import LinkList from "../styled/LinkList"
 import SplitView from "../styled/SplitView"
 import { LargeTitle, MediumParagraph } from "../styled/typography"
 
+const baseDomain =
+  process.env.NODE_ENV == "production"
+    ? "https://bolliger.io"
+    : "http://localhost:3000"
+
 const yannData = partners["yann"]
 const sections = [
   {
     id: "about",
     title: "About me",
   },
-  { id: "blog", title: "Blog" },
+  /* { id: "blog", title: "Blog" },
   {
     id: "projects",
     title: "Projects",
-  },
+  },*/
   {
     id: "contact",
+    href: `${baseDomain}#contact`,
     title: "Contact me",
   },
+  { href: baseDomain, title: "Home" },
 ]
-
-const baseDomain =
-  process.env.NODE_ENV == "production"
-    ? "https://bolliger.io"
-    : "http://localhost:3000"
 
 const YannPage = () => (
   <>
@@ -42,7 +44,7 @@ const YannPage = () => (
 
     <LogoMenuHeader
       logoWords={[yannData.firstName, "Bolliger"]}
-      entries={[...sections, { href: baseDomain, title: "Home" }]}
+      entries={[...sections]}
     />
 
     <TextBlockSection {...sections[0]}>
@@ -56,7 +58,7 @@ const YannPage = () => (
       </MediumParagraph>
     </TextBlockSection>
 
-    <TextBlockSection {...sections[1]} borderTop>
+    {/*<TextBlockSection {...sections[1]} borderTop>
       <LargeTitle>Thoughts</LargeTitle>
       <MediumParagraph>Sometimes I write some stuff...</MediumParagraph>
     </TextBlockSection>
@@ -74,7 +76,7 @@ const YannPage = () => (
       />
     </SplitView>
 
-    <ProjectsSection {...sections[2]} />
+    <ProjectsSection {...sections[2]} />*/}
   </>
 )
 
