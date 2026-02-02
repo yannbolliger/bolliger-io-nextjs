@@ -21,6 +21,14 @@ const nextConfig = {
       },
     ],
   }),
+  redirects: () => [
+    {
+      source: "/lets(-)?dance",
+      destination:
+        "https://kdrive.infomaniak.com/app/share/115560/f4d0696f-76b2-46f4-a8c9-4e1a92ed055b",
+      permanent: false,
+    },
+  ],
 }
 
 module.exports = withMDX(nextConfig)
